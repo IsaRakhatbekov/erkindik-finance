@@ -1,11 +1,15 @@
 :root {
-  --color-white: #fff;
-  --color-dark: #28343a;
+  --color-black: #010101;
+  --color-white: #d9d9d9;
+  --color-primary: #28343a;
+  --color-dark: #203139;
+  --color-yellow: #f1b83f;
+  --color-dark-gray: #2a2a2a;
 }
 
 body {
   color: var(--color-white);
-  background: var(--color-dark);
+  background: var(--color-primary);
   font-family: var(--font-inter);
   font-size: 16px;
   font-weight: 400;
@@ -16,4 +20,14 @@ body {
   max-width: 1270px;
   padding: 0 15px;
   margin: 0 auto;
+}
+
+.def-title {
+  font-family: var(--font-montserrrat);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.3em;
+  letter-spacing: 0.01em;
+  color: var(--color-white);
+  margin-bottom: 50px;
 }

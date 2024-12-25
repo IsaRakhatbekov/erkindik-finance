@@ -1,6 +1,5 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Home from "./home/page";
 
-export default function Home() {
-  return <div className={styles.page}>header main footer</div>;
+export default function Main() {
+  return <Home />;
 }

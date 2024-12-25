@@ -1,5 +1,5 @@
-import "@/global/styles/_reset.scss";
-import "@/global/styles/global.scss";
+import "@/src/global/styles/_reset.scss";
+import "@/src/global/styles/global.scss";
 import localFont from "next/font/local";
 
 const ibmFont = localFont({
