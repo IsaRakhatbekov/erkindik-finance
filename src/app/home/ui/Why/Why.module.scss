@@ -38,3 +38,11 @@
     margin-bottom: 20px;
   }
 }
+
+@media (max-width: 500px) {
+  .why {
+    .list {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+  }
+}

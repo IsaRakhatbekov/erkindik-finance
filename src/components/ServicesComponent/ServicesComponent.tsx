@@ -1,11 +1,11 @@
 import Image from "next/image";
-import styles from "./Services.module.scss";
+import styles from "./ServicesComponent.module.scss";
 import Services1 from "@/public/images/moneySvg.svg";
 import Services2 from "@/public/images/plusSvg.svg";
 import Services3 from "@/public/images/wallet.svg";
 import Services4 from "@/public/images/handAndCoinsSvg.svg";
 
-export const Services = () => {
+export const ServicesComponent = () => {
   return (
     <section className={styles.services}>
       <div className={`${styles.servicesContainer} container`}>

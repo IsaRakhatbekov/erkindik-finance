@@ -7,7 +7,15 @@
   --color-dark-gray: #2a2a2a;
 }
 
+html,
 body {
+  height: 100%; /* Устанавливаем высоту для html и body */
+  margin: 0; /* Убираем отступы */
+}
+
+body {
+  display: flex; /* Делаем body flex-контейнером */
+  flex-direction: column; /* Элементы располагаются вертикально */
   color: var(--color-white);
   background: var(--color-primary);
   font-family: var(--font-inter);
@@ -16,18 +24,41 @@ body {
   line-height: 1.3em;
 }
 
+main {
+  flex: 1; /* Заставляем main занимать доступное пространство */
+}
+
 .container {
   max-width: 1270px;
   padding: 0 15px;
   margin: 0 auto;
 }
 
+footer {
+  margin-top: auto;
+  background: var(--color-dark-gray);
+  padding: 20px;
+  text-align: center;
+  color: var(--color-white);
+}
+
 .def-title {
   font-family: var(--font-montserrrat);
   font-weight: 700;
   font-size: 40px;
+  font-size: calc(28px + 12 * (100vw / 1440));
   line-height: 1.3em;
   letter-spacing: 0.01em;
   color: var(--color-white);
   margin-bottom: 50px;
+}
+
+@media (max-width: 500px) {
+  body {
+    background-color: var(--color-dark);
+  }
+
+  .def-title {
+    margin-bottom: 25px;
+  }
 }

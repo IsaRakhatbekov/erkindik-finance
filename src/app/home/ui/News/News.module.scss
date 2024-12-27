@@ -63,3 +63,18 @@
     color: var(--color-dark-gray);
   }
 }
+
+@media (max-width: 500px) {
+  .news {
+    position: relative;
+    padding: 70px 0;
+
+    &::after {
+      display: none;
+    }
+
+    .list {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
+}

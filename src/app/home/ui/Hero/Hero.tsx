@@ -1,8 +1,26 @@
+"use client";
 import Image from "next/image";
 import styles from "./Hero.module.scss";
 import heroImg from "@/public/images/heroBox.png";
+import heroBoxMobile from "@/public/images/heroBlackBox.svg";
+import { useEffect, useState } from "react";
 
 export const Hero = () => {
+  const [box, setBox] = useState(false);
+
+  const changeImg = () => {
+    setBox(window.innerWidth < 500);
+  };
+
+  useEffect(() => {
+    changeImg();
+    window.addEventListener("resize", changeImg);
+
+    return () => {
+      window.removeEventListener("resize", changeImg);
+    };
+  }, []);
+
   return (
     <section className={styles.hero}>
       <div className={`${styles.heroContainer} container`}>
@@ -26,7 +44,7 @@ export const Hero = () => {
             </div>
           </li>
           <li className={styles.imgWrapper}>
-            <Image src={heroImg} alt="Сейф" />
+            <Image src={box ? heroBoxMobile : heroImg} alt="Сейф" />
           </li>
         </ul>
       </div>

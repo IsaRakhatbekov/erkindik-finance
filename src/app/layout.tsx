@@ -1,6 +1,8 @@
 import "@/src/global/styles/_reset.scss";
 import "@/src/global/styles/global.scss";
 import localFont from "next/font/local";
+import { Header } from "../components/Header/Header";
+import { Footer } from "../components/Footer/Footer";
 
 const ibmFont = localFont({
   src: [
@@ -154,7 +156,11 @@ export default function RootLayout({
       lang="en"
       className={`${ibmFont.variable} ${interFont.variable} ${jostFont.variable} ${montserratFont.variable} ${nunitoFont.variable} ${robotoFonts.variable} ${sourceProFont.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }

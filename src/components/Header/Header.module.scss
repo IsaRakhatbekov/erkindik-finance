@@ -1,4 +1,5 @@
 .header {
+  padding: 5px 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -50,6 +51,160 @@
       width: 18px;
       height: 18px;
       background: url("../../../public/images/call.svg") no-repeat center/cover;
+    }
+  }
+
+  .phoneWrapper {
+    gap: 30px;
+    display: flex;
+    align-items: center;
+  }
+
+  .menuBtn {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    display: none;
+    z-index: 99;
+
+    & span {
+      position: relative;
+      display: inline-block;
+      width: 22px;
+      height: 2px;
+      background-color: var(--color-white);
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 22px;
+        height: 2px;
+        left: 0;
+        background-color: var(--color-white);
+      }
+
+      &::before {
+        transform: translateY(-7px);
+      }
+      &::after {
+        transform: translateY(7px);
+      }
+    }
+  }
+
+  .menuBtnActive {
+    & span {
+      height: 0;
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 22px;
+        height: 2px;
+        left: 0;
+        background-color: var(--color-white);
+      }
+
+      &::before {
+        transform: translateY(0px) rotate(-45deg);
+      }
+      &::after {
+        transform: translateY(0px) rotate(45deg);
+      }
+    }
+  }
+
+  .mobileWrapper {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: var(--color-dark);
+    transform: translateY(-150%);
+    text-align: center;
+    display: none;
+    transition: all 1s;
+
+    .mobileList {
+      width: 100%;
+    }
+
+    .mobileItem {
+      width: 100%;
+    }
+    .mobileLink {
+      display: inline-block;
+      width: 100%;
+      padding: 10px 0;
+      font-weight: 600;
+      font-size: 18px;
+    }
+  }
+
+  .mobileWrapperActive {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1200px) {
+  .header {
+    .logo {
+      width: 120px;
+      height: 100px;
+    }
+    .list {
+      gap: 25px;
+    }
+    .link,
+    .phone {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .header {
+    .logo {
+      width: 90px;
+      height: 90px;
+    }
+    .link,
+    .phone {
+      font-size: 16px;
+    }
+    .phone {
+      &::before {
+        top: 3px;
+      }
+    }
+
+    .list {
+      gap: 12px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    .list {
+      display: none;
+    }
+
+    .menuBtn {
+      display: flex;
+    }
+
+    .mobileWrapper {
+      display: flex;
     }
   }
 }

@@ -47,3 +47,19 @@
     color: var(--color-dark-grey);
   }
 }
+
+@media (max-width: 500px) {
+  .offers {
+    padding-bottom: 50px;
+
+    .imgWrapper {
+      width: 100px;
+      height: 100px;
+    }
+
+    .innerTitle {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+  }
+}
