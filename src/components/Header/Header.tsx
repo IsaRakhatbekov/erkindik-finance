@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "./Header.module.scss";
 import logo from "@/public/images/logo.svg";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 export const Header = () => {
   const [burger, setBurger] = useState(false);
 
@@ -26,39 +27,39 @@ export const Header = () => {
     <header className={styles.header}>
       <div className={`${styles.headerContainer} container`}>
         <nav className={styles.nav}>
-          <a href="#" className={styles.logo}>
+          <Link href="/" className={styles.logo}>
             <Image src={logo} alt="" />
-          </a>
+          </Link>
           <ul className={styles.list}>
             <li className={styles.item}>
-              <a className={styles.link} href="/">
+              <Link className={styles.link} href="/">
                 Главная
-              </a>
+              </Link>
             </li>
             <li className={styles.item}>
-              <a className={styles.link} href="/service">
+              <Link className={styles.link} href="/service">
                 Услуги
-              </a>
+              </Link>
             </li>
             <li className={styles.item}>
-              <a className={styles.link} href="/documents">
+              <Link className={styles.link} href="/documents">
                 Документы
-              </a>
+              </Link>
             </li>
             <li className={styles.item}>
-              <a className={styles.link} href="/about">
+              <Link className={styles.link} href="/about">
                 О нас
-              </a>
+              </Link>
             </li>
             <li className={styles.item}>
-              <a className={styles.link} href="#">
+              <Link className={styles.link} href="#">
                 Новости
-              </a>
+              </Link>
             </li>
             <li className={styles.item}>
-              <a className={styles.link} href="/contacts">
+              <Link className={styles.link} href="/contacts">
                 Контакты
-              </a>
+              </Link>
             </li>
           </ul>
           <div className={styles.phoneWrapper}>
@@ -81,34 +82,34 @@ export const Header = () => {
           >
             <ul className={styles.mobileList}>
               <li className={styles.mobileItem}>
-                <a className={styles.mobileLink} href="/">
+                <Link className={styles.mobileLink} href="/">
                   Главная
-                </a>
+                </Link>
               </li>
               <li className={styles.mobileItem}>
-                <a className={styles.mobileLink} href="/service">
+                <Link className={styles.mobileLink} href="/service">
                   Услуги
-                </a>
+                </Link>
               </li>
               <li className={styles.mobileItem}>
-                <a className={styles.mobileLink} href="#">
+                <Link className={styles.mobileLink} href="#">
                   Документы
-                </a>
+                </Link>
               </li>
               <li className={styles.mobileItem}>
-                <a className={styles.mobileLink} href="/about">
+                <Link className={styles.mobileLink} href="/about">
                   О нас
-                </a>
+                </Link>
               </li>
               <li className={styles.mobileItem}>
-                <a className={styles.mobileLink} href="#">
+                <Link className={styles.mobileLink} href="#">
                   Новости
-                </a>
+                </Link>
               </li>
               <li className={styles.mobileItem}>
-                <a className={styles.mobileLink} href="/contacts">
+                <Link className={styles.mobileLink} href="/contacts">
                   Контакты
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

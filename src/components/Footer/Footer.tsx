@@ -1,8 +1,18 @@
 import Image from "next/image";
 import styles from "./Footer.module.scss";
 import logo from "@/public/images/logo.svg";
+import Link from "next/link";
+import { IContactsApiResponse } from "@/src/types/IContacts";
 
-export const Footer = () => {
+export const Footer = async () => {
+  const res = await fetch(`${process.env.API_URL}/api/contact`);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch contacts");
+  }
+
+  const { data }: IContactsApiResponse = await res.json();
+
   return (
     <footer className={styles.footer}>
       <div className={`${styles.footerCOntainer} container`}>
@@ -112,39 +122,39 @@ export const Footer = () => {
           <ul className={styles.list}>
             <li className={styles.item}>
               <h5 className={styles.innerTitle}>Страницы</h5>
-              <a className={styles.link} href="">
+              <Link className={styles.link} href="">
                 Главная
-              </a>
-              <a className={styles.link} href="">
+              </Link>
+              <Link className={styles.link} href="">
                 О нас
-              </a>
-              <a className={styles.link} href="">
+              </Link>
+              <Link className={styles.link} href="">
                 Услуги
-              </a>
-              <a className={styles.link} href="">
+              </Link>
+              <Link className={styles.link} href="">
                 Контакты
-              </a>
-              <a className={styles.link} href="">
+              </Link>
+              <Link className={styles.link} href="">
                 Документы
-              </a>
+              </Link>
             </li>
             <li className={styles.item}>
               <h5 className={styles.innerTitle}>Услуги</h5>
-              <a className={styles.link} href="">
+              <Link className={styles.link} href="">
                 Покупка/продажа
-              </a>
-              <a className={styles.link} href="">
+              </Link>
+              <Link className={styles.link} href="">
                 Ценные бумаги
-              </a>
-              <a className={styles.link} href="">
+              </Link>
+              <Link className={styles.link} href="">
                 Конвертация
-              </a>
+              </Link>
             </li>
             <li className={styles.item}>
               <h5 className={styles.innerTitle}>Контакты</h5>
               <a
                 className={`${styles.link} ${styles.contacts}`}
-                href="tel:+996708148878"
+                href={`tel:+${data.phone}`}
               >
                 <span>
                   <svg
@@ -160,11 +170,11 @@ export const Footer = () => {
                     />
                   </svg>
                 </span>
-                +996 70814 88 78
+                +{data.phone}
               </a>
               <a
                 className={`${styles.link} ${styles.contacts}`}
-                href="mailto:info@erkindikfinance.kg"
+                href={`mailto:${data.email}`}
                 target="_blank"
               >
                 <span>
@@ -181,12 +191,12 @@ export const Footer = () => {
                     />
                   </svg>
                 </span>
-                info@erkindikfinance.kg
+                {data.email}
               </a>
               <a
                 className={`${styles.link} ${styles.contacts}`}
                 target="_blank"
-                href="https://2gis.kg/bishkek/search/%D0%98%D0%B1%D1%80%D0%B0%D0%B8%D0%BC%D0%BE%D0%B2%D0%B0115%2F1%20%D0%91%D0%A6%20%D0%90%D1%81%D1%8B%D0%BB-%D0%A2%D0%B0%D1%88%204%20%D1%8D%D1%82%D0%B0%D0%B6/firm/70000001038210284/74.619865%2C42.874072?m=74.61919%2C42.874621%2F16.8"
+                href={data.addressLink}
               >
                 <span>
                   <svg
@@ -202,7 +212,7 @@ export const Footer = () => {
                     />
                   </svg>
                 </span>
-                Ибраимова115/1 БЦ Асыл-Таш 4 этаж
+                {data.address}
               </a>
             </li>
           </ul>

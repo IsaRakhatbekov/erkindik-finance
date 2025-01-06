@@ -1,66 +1,32 @@
-import Image from "next/image";
+import { INewsApiResponse } from "@/src/types/INews";
 import styles from "./News.module.scss";
-import news1 from "@/public/images/news1.png";
-import news2 from "@/public/images/news2.png";
-import news3 from "@/public/images/news3.png";
+import { NewsCard } from "./NewsCard/NewsCard";
 
-export const News = () => {
+export const News = async () => {
+  const res = await fetch(`${process.env.API_URL}/api/news?populate=*`);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch news");
+  }
+
+  const { data }: INewsApiResponse = await res.json();
+
   return (
     <section className={styles.news}>
       <div className={`${styles.newsContainer} container`}>
         <h2 className={`${styles.title} def-title`}>Новости</h2>
         <ul className={styles.list}>
-          <li className={styles.item}>
-            <div className={styles.imgWrapper}>
-              <Image src={news1} alt="" />
-            </div>
-            <div className={styles.inner}>
-              <h4 className={styles.innerTitle}>
-                Инвестиционный фонд ABC Capital увеличил доходность портфелей на
-                12% за квартал
-              </h4>
-              <p className={styles.text}>
-                ABC Capital, известный своими инновационными подходами в
-                управлении активами, отчитался о росте доходности на 12% за
-                третий квартал 2024 года. Руководство фонда связывает успех с
-                эффективной диверсификацией активов и внедрением
-                алгоритмического анализа для управления рисками
-              </p>
-            </div>
-          </li>
-          <li className={styles.item}>
-            <div className={styles.imgWrapper}>
-              <Image src={news2} alt="" />
-            </div>
-            <div className={styles.inner}>
-              <h4 className={styles.innerTitle}>
-                O увеличила прибыль на 20% благодаря развитию цифровых продуктов
-              </h4>
-              <p className={styles.text}>
-                Финансовая компания O опубликовала финансовые результаты за
-                третий квартал 2024 года. Прибыль выросла на 20% по сравнению с
-                аналогичным периодом прошлого года. Рост обеспечен внедрением
-                новых цифровых решений, включая мобильное приложение для
-                управления финансами и платформу
-              </p>
-            </div>
-          </li>
-          <li className={styles.item}>
-            <div className={styles.imgWrapper}>
-              <Image src={news3} alt="" />
-            </div>
-            <div className={styles.inner}>
-              <h4 className={styles.innerTitle}>
-                Финансовая компания O открывает международное направление
-              </h4>
-              <p className={styles.text}>
-                Компания O объявила о выходе на международные рынки. В рамках
-                новой стратегии развития офисы компании появятся в Лондоне,
-                Сингапуре и Дубае, что позволит укрепить её позиции в сфере
-                управления активами и корпоративного кредитования.
-              </p>
-            </div>
-          </li>
+          {data?.map((newsItem) => {
+            const { id, title, text, image } = newsItem;
+
+            const imageUrl = `${process.env.API_URL}${
+              image?.formats?.medium?.url || image?.url
+            }`;
+
+            return (
+              <NewsCard id={id} image={imageUrl} title={title} text={text} />
+            );
+          })}
         </ul>
       </div>
     </section>
