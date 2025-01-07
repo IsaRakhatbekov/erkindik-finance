@@ -1,31 +1,69 @@
+'use client'
+import { useState } from "react";
 import styles from "./SectionContacts.module.scss";
 
 export const SectionContacts = () => {
+  const [formData, setFormData] = useState({
+    phone: "",
+    name: "",
+    comment: "",
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+
+    if (name === "phone") {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value.replace(/\D/g, ""),
+      }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Отправленные данные:", formData);
+    // Здесь можно добавить логику отправки данных на сервер
+  };
+
   return (
     <section className={styles.contacts}>
       <div className={`${styles.contactsContainer} container`}>
         <div className={styles.wrapper}>
-          <form className={styles.form}>
+          <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.inputWrapper}>
               <input
                 className={styles.input}
                 type="text"
+                name="phone"
                 placeholder="Ваш номер телефона"
+                value={formData.phone}
+                onChange={handleInputChange}
               />
               <input
                 className={styles.input}
                 type="text"
+                name="name"
                 placeholder="Ваше имя"
+                value={formData.name}
+                onChange={handleInputChange}
               />
             </div>
             <textarea
               className={styles.textArea}
+              name="comment"
               placeholder="Комментарий"
+              value={formData.comment}
+              onChange={handleInputChange}
             ></textarea>
-            <button className={styles.formBtn}>Связаться</button>
+            <button type="submit" className={styles.formBtn}>
+              Связаться
+            </button>
           </form>
           <ul className={styles.right}>
-            <li className={styles.item}>
+          <li className={styles.item}>
               <a
                 className={styles.link}
                 href="mailto:info@erkindikfinance.kg"
@@ -50,7 +88,7 @@ export const SectionContacts = () => {
             </li>
             <li className={styles.item}>
               <a className={styles.link} href="tel:+996708148878">
-                <span>
+              <span>
                   <svg
                     width="37"
                     height="42"

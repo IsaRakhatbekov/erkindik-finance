@@ -11,6 +11,8 @@ html,
 body {
   height: 100%; /* Устанавливаем высоту для html и body */
   margin: 0; /* Убираем отступы */
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -38,7 +40,6 @@ footer {
   margin-top: auto;
   background: var(--color-dark-gray);
   padding: 20px;
-  text-align: center;
   color: var(--color-white);
 }
 
@@ -51,6 +52,12 @@ footer {
   letter-spacing: 0.01em;
   color: var(--color-white);
   margin-bottom: 50px;
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 65px;
+  }
 }
 
 @media (max-width: 500px) {

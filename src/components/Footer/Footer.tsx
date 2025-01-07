@@ -6,7 +6,6 @@ import { IContactsApiResponse } from "@/src/types/IContacts";
 
 export const Footer = async () => {
   const res = await fetch(`${process.env.API_URL}/api/contact`);
-
   if (!res.ok) {
     throw new Error("Failed to fetch contacts");
   }

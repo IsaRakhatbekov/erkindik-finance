@@ -35,6 +35,10 @@
   .link {
     font-size: 20px;
     line-height: 1.3em;
+
+    &.active {
+      color: var(--color-yellow);
+    }
   }
 
   .phone {

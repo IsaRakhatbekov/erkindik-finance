@@ -4,11 +4,28 @@ import styles from "./Header.module.scss";
 import logo from "@/public/images/logo.svg";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation"; // Hook для получения текущего пути
+
 export const Header = () => {
   const [burger, setBurger] = useState(false);
+  const pathname = usePathname(); // Получаем текущий путь
 
   const handleClickBurger = () => {
     setBurger((prev) => !prev);
+  };
+
+  const handleScrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault(); // Останавливаем стандартное поведение ссылки
+      const targetSection = document.getElementById(href.slice(1)); // Получаем id секции
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: "smooth" }); // Прокрутка до секции
+      }
+    }
+  };
+
+  const handleMobileLinkClick = () => {
+    setBurger(false); // Закрываем меню при клике на мобильные ссылки
   };
 
   useEffect(() => {
@@ -28,38 +45,62 @@ export const Header = () => {
       <div className={`${styles.headerContainer} container`}>
         <nav className={styles.nav}>
           <Link href="/" className={styles.logo}>
-            <Image src={logo} alt="" />
+            <Image src={logo} alt="Логотип" />
           </Link>
           <ul className={styles.list}>
             <li className={styles.item}>
-              <Link className={styles.link} href="/">
+              <a
+                href="/"
+                onClick={(e) => { handleScrollToSection(e, "/"); handleMobileLinkClick(); }}
+                className={`${styles.link} ${pathname === "/" ? styles.active : ""}`}
+              >
                 Главная
-              </Link>
+              </a>
             </li>
             <li className={styles.item}>
-              <Link className={styles.link} href="/service">
+              <a
+                href="/service"
+                onClick={(e) => { handleScrollToSection(e, "/service"); handleMobileLinkClick(); }}
+                className={`${styles.link} ${pathname === "/service" ? styles.active : ""}`}
+              >
                 Услуги
-              </Link>
+              </a>
             </li>
             <li className={styles.item}>
-              <Link className={styles.link} href="/documents">
+              <a
+                href="/documents"
+                onClick={(e) => { handleScrollToSection(e, "/documents"); handleMobileLinkClick(); }}
+                className={`${styles.link} ${pathname === "/documents" ? styles.active : ""}`}
+              >
                 Документы
-              </Link>
+              </a>
             </li>
             <li className={styles.item}>
-              <Link className={styles.link} href="/about">
+              <a
+                href="/about"
+                onClick={(e) => { handleScrollToSection(e, "/about"); handleMobileLinkClick(); }}
+                className={`${styles.link} ${pathname === "/about" ? styles.active : ""}`}
+              >
                 О нас
-              </Link>
+              </a>
             </li>
             <li className={styles.item}>
-              <Link className={styles.link} href="#">
+              <a
+                href="/#news"
+                onClick={(e) => { handleScrollToSection(e, "/#news"); handleMobileLinkClick(); }}
+                className={`${styles.link} ${pathname === "/#news" ? styles.active : ""}`}
+              >
                 Новости
-              </Link>
+              </a>
             </li>
             <li className={styles.item}>
-              <Link className={styles.link} href="/contacts">
+              <a
+                href="/contacts"
+                onClick={(e) => { handleScrollToSection(e, "/contacts"); handleMobileLinkClick(); }}
+                className={`${styles.link} ${pathname === "/contacts" ? styles.active : ""}`}
+              >
                 Контакты
-              </Link>
+              </a>
             </li>
           </ul>
           <div className={styles.phoneWrapper}>
@@ -68,48 +109,68 @@ export const Header = () => {
             </a>
             <button
               onClick={handleClickBurger}
-              className={`${styles.menuBtn} ${
-                burger ? styles.menuBtnActive : ""
-              }`}
+              className={`${styles.menuBtn} ${burger ? styles.menuBtnActive : ""}`}
             >
               <span></span>
             </button>
           </div>
           <div
-            className={`${styles.mobileWrapper} ${
-              burger ? styles.mobileWrapperActive : ""
-            }`}
+            className={`${styles.mobileWrapper} ${burger ? styles.mobileWrapperActive : ""}`}
           >
             <ul className={styles.mobileList}>
               <li className={styles.mobileItem}>
-                <Link className={styles.mobileLink} href="/">
+                <a
+                  href="/"
+                  onClick={(e) => { handleScrollToSection(e, "/"); handleMobileLinkClick(); }}
+                  className={`${styles.mobileLink} ${pathname === "/" ? styles.active : ""}`}
+                >
                   Главная
-                </Link>
+                </a>
               </li>
               <li className={styles.mobileItem}>
-                <Link className={styles.mobileLink} href="/service">
+                <a
+                  href="/service"
+                  onClick={(e) => { handleScrollToSection(e, "/service"); handleMobileLinkClick(); }}
+                  className={`${styles.mobileLink} ${pathname === "/service" ? styles.active : ""}`}
+                >
                   Услуги
-                </Link>
+                </a>
               </li>
               <li className={styles.mobileItem}>
-                <Link className={styles.mobileLink} href="#">
+                <a
+                  href="/documents"
+                  onClick={(e) => { handleScrollToSection(e, "/documents"); handleMobileLinkClick(); }}
+                  className={`${styles.mobileLink} ${pathname === "/documents" ? styles.active : ""}`}
+                >
                   Документы
-                </Link>
+                </a>
               </li>
               <li className={styles.mobileItem}>
-                <Link className={styles.mobileLink} href="/about">
+                <a
+                  href="/about"
+                  onClick={(e) => { handleScrollToSection(e, "/about"); handleMobileLinkClick(); }}
+                  className={`${styles.mobileLink} ${pathname === "/about" ? styles.active : ""}`}
+                >
                   О нас
-                </Link>
+                </a>
               </li>
               <li className={styles.mobileItem}>
-                <Link className={styles.mobileLink} href="#">
+                <a
+                  href="/#news"
+                  onClick={(e) => { handleScrollToSection(e, "/#news"); handleMobileLinkClick(); }}
+                  className={`${styles.mobileLink} ${pathname === "/#news" ? styles.active : ""}`}
+                >
                   Новости
-                </Link>
+                </a>
               </li>
               <li className={styles.mobileItem}>
-                <Link className={styles.mobileLink} href="/contacts">
+                <a
+                  href="/contacts"
+                  onClick={(e) => { handleScrollToSection(e, "/contacts"); handleMobileLinkClick(); }}
+                  className={`${styles.mobileLink} ${pathname === "/contacts" ? styles.active : ""}`}
+                >
                   Контакты
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

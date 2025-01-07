@@ -12,7 +12,7 @@ export const News = async () => {
   const { data }: INewsApiResponse = await res.json();
 
   return (
-    <section className={styles.news}>
+    <section className={styles.news} id="news">
       <div className={`${styles.newsContainer} container`}>
         <h2 className={`${styles.title} def-title`}>Новости</h2>
         <ul className={styles.list}>
