@@ -24,7 +24,7 @@ export const News = async () => {
             }`;
 
             return (
-              <NewsCard id={id} image={imageUrl} title={title} text={text} />
+              <NewsCard key={id} image={imageUrl} title={title} text={text} />
             );
           })}
         </ul>

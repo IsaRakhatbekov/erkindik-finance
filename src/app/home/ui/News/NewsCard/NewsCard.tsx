@@ -3,7 +3,6 @@ import styles from "./NewsCard.module.scss";
 import { FC } from "react";
 
 interface INewsCard {
-  id: number;
   image: string;
   title: string;
   text: string;
