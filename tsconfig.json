@@ -27,7 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/home/ui/Offers/OfferCard"
+    "src/ui/Offers/OfferCard"
   ],
   "exclude": ["node_modules"]
 }

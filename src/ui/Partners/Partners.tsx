@@ -4,29 +4,32 @@ import PartnersCard from "./PartnersCard/PartnersCard";
 import { IPartnersCardApiResponse } from "@/src/types/IPartnersCard";
 
 export const Partners = async () => {
-  // const res = await fetch(`${process.env.API_URL}/api/partners?populate=*`);
+  let data: IPartnersCardApiResponse["data"] = [];
 
-  // if (!res.ok) {
-  //   throw new Error("Failed to fetch news");
-  // }
+  try {
+    const res = await fetch(`${process.env.API_URL}/api/partners?populate=*`);
 
-  // const { data }: IPartnersCardApiResponse = await res.json();
-  // console.log(data);
+    if (!res.ok) {
+      throw new Error(`Failed to fetch partners: ${res.statusText}`);
+    }
+
+    const response: IPartnersCardApiResponse = await res.json();
+    data = response.data;
+  } catch (error) {
+    console.error("Error fetching partners:", error);
+    data = [];
+  }
 
   return (
     <section className={styles.partners}>
       <div className={`${styles.partnersContainer} container`}>
         <h2 className={`${styles.partnersTitle} def-title`}>Наши партнеры</h2>
         <ul className={styles.list}>
-          {/* {data?.map((partnersItem) => {
+          {data?.map((partnersItem) => {
             const { id, image } = partnersItem;
 
-            const imageUrl = `${process.env.API_URL}${
-              image?.formats?.medium?.url || image?.url
-            }`;
-
-            return <PartnersCard key={id} image={imageUrl} />;
-          })} */}
+            return <PartnersCard key={id} image={image} />;
+          })}
         </ul>
       </div>
     </section>

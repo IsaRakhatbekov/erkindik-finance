@@ -2,16 +2,14 @@ import Image from "next/image";
 import styles from "./Footer.module.scss";
 import logo from "@/public/images/logo.svg";
 import Link from "next/link";
+import { FC } from "react";
 import { IContactsApiResponse } from "@/src/types/IContacts";
 
-export const Footer = async () => {
-  const res = await fetch(`${process.env.API_URL}/api/contact`);
-  if (!res.ok) {
-    throw new Error("Failed to fetch contacts");
-  }
+interface IFooterProps {
+  data: IContactsApiResponse['data'];
+}
 
-  const { data }: IContactsApiResponse = await res.json();
-
+export const Footer:FC<IFooterProps> = ({data}) => {
   return (
     <footer className={styles.footer}>
       <div className={`${styles.footerCOntainer} container`}>

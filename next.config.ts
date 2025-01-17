@@ -5,12 +5,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'http',
-        hostname: 'localhost',
-      },
-      {
-        protocol: 'http',
-        hostname: '2.58.16.6', // Добавляем ваш IP-адрес
-      },
+        hostname: '2.58.16.6'
+      }
     ],
   },
 };

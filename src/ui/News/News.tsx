@@ -3,13 +3,21 @@ import styles from "./News.module.scss";
 import { NewsCard } from "./NewsCard/NewsCard";
 
 export const News = async () => {
-  const res = await fetch(`${process.env.API_URL}/api/news?populate=*`);
+  let data: INewsApiResponse["data"] = [];
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch news");
+  try {
+    const res = await fetch(`${process.env.API_URL}/api/news?populate=*`);
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch news: ${res.statusText}`);
+    }
+
+    const response: INewsApiResponse = await res.json();
+    data = response.data;
+  } catch (error) {
+    console.error("Error fetching news:", error);
+    data = [];
   }
-
-  const { data }: INewsApiResponse = await res.json();
 
   return (
     <section className={styles.news} id="news">

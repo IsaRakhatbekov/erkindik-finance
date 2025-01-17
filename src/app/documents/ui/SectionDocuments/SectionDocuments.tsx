@@ -1,5 +1,6 @@
 import DocumentsAccordion from "./DocumentsAccordion/DocumentsAccordion";
 import styles from "./SectionDocuments.module.scss";
+
 export const SectionDocuments = () => {
   return (
     <section className={styles.documents}>
@@ -9,7 +10,7 @@ export const SectionDocuments = () => {
         </h2>
 
         <ul className={styles.accordionWrapper}>
-          <DocumentsAccordion />
+          <DocumentsAccordion title="lorem ipsum" file="lorem ipsum" />
         </ul>
 
         <h2 className={`${styles.documentsTitle} def-title`}>

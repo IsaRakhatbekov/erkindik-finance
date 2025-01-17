@@ -1,4 +1,3 @@
-
 interface IImageFormats {
   medium?: {
     url: string;
@@ -6,9 +5,11 @@ interface IImageFormats {
   [key: string]: any;
 }
 
-interface IPartnersCardImage {
+export interface IPartnersCardImage {
   formats?: IImageFormats;
   url: string;
+  width: number;
+  height: number;
 }
 
 interface IPartnersCardData {
