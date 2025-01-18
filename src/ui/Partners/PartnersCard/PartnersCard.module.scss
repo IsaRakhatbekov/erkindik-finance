@@ -16,3 +16,10 @@
     object-position: center;
   }
 }
+
+@media (max-width: 768px) {
+  .image {
+    border-radius: 10px;
+    height: 80px;
+  }
+}
