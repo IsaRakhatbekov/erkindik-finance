@@ -8,7 +8,7 @@ interface IPartnersCard {
 }
 
 const PartnersCard: FC<IPartnersCard> = ({ image }) => {
-  const imageUrl = `${process.env.API_URL}${
+  const imageUrl = `${process.env.NEXT_PUBLIC_API_URL}${
     image?.formats?.medium?.url || image?.url
   }`;
   return (
@@ -17,8 +17,8 @@ const PartnersCard: FC<IPartnersCard> = ({ image }) => {
         <Image
           src={imageUrl}
           alt="partner logo"
-          width={image.width}
-          height={image.height}
+          width={image?.width}
+          height={image?.height}
         />
       </div>
     </li>

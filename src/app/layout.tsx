@@ -164,9 +164,10 @@ export default async function RootLayout({
     email: "lorem ipsum",
     address: "lorem ipsum",
     addressLink: "lorem ipsum",
+    schedule: "lorem ipsum"
   };
   try {
-    const res = await fetch(`${process.env.API_URL}/api/contact`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contact`);
     if (!res.ok) {
       throw new Error("Failed to fetch contacts");
     }
@@ -178,11 +179,11 @@ export default async function RootLayout({
   }
   return (
     <html
-      lang="en"
+      lang="ru"
       className={`${ibmFont.variable} ${interFont.variable} ${jostFont.variable} ${montserratFont.variable} ${nunitoFont.variable} ${robotoFonts.variable} ${sourceProFont.variable}`}
     >
       <body>
-        <Header phone={contactsData.phone} />
+        <Header phone={contactsData?.phone} />
         <main>{children}</main>
         <Footer data={contactsData} />
       </body>

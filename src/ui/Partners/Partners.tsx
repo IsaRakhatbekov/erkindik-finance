@@ -7,7 +7,7 @@ export const Partners = async () => {
   let data: IPartnersCardApiResponse["data"] = [];
 
   try {
-    const res = await fetch(`${process.env.API_URL}/api/partners?populate=*`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/partners?populate=*`);
 
     if (!res.ok) {
       throw new Error(`Failed to fetch partners: ${res.statusText}`);

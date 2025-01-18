@@ -3,6 +3,7 @@ interface IContactsData {
   email: string;
   address: string;
   addressLink: string;
+  schedule: string;
 }
 
 export interface IContactsApiResponse {

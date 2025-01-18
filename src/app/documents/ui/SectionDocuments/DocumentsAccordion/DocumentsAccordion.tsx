@@ -1,13 +1,14 @@
 "use client";
 import { FC, useState } from "react";
 import styles from "./DocumentsAccordion.module.scss";
+import { IDocumentFile } from "@/src/types/IDocuments";
 
-interface IDocumentText {
+interface IDocumentsAccordionProps {
   title: string;
-  file: string;
+  files: IDocumentFile[];
 }
 
-const DocumentsAccordion: FC<IDocumentText> = ({ title, file }) => {
+const DocumentsAccordion: FC<IDocumentsAccordionProps> = ({ title, files }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const handleClickAccordion = (index: number) => {
@@ -22,15 +23,26 @@ const DocumentsAccordion: FC<IDocumentText> = ({ title, file }) => {
           activeIndex === 0 ? styles.accordionBtnActive : ""
         }`}
       >
-        Документы компании и Проверка лицензий/свидетельств
+        {title}
       </button>
-      <div
+      <ul
         className={`${styles.accordionBody} ${
           activeIndex === 0 ? styles.accordionActive : ""
         }`}
       >
-        textextextetxetxetxetet
-      </div>
+        {files?.map((file) => (
+          <li key={file.id} className={styles.accordionItem}>
+            <a
+              href={`${process.env.NEXT_PUBLIC_API_URL}${file?.url}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.accordionLink}
+            >
+              {file?.name}
+            </a>
+          </li>
+        ))}
+      </ul>
     </li>
   );
 };

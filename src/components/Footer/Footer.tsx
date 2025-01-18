@@ -149,10 +149,10 @@ export const Footer:FC<IFooterProps> = ({data}) => {
             </li>
             <li className={styles.item}>
               <h5 className={styles.innerTitle}>Контакты</h5>
-              {data.phone ? (
+              {data?.phone ? (
                 <a
                   className={`${styles.link} ${styles.contacts}`}
-                  href={`tel:+${data.phone}`}
+                  href={`tel:+${data?.phone}`}
                 >
                   <span>
                     <svg
@@ -168,15 +168,15 @@ export const Footer:FC<IFooterProps> = ({data}) => {
                       />
                     </svg>
                   </span>
-                  +{data.phone}
+                  +{data?.phone}
                 </a>
               ) : (
                 <p className={styles.noData}>Телефон: Нет данных</p>
               )}
-              {data.email ? (
+              {data?.email ? (
                 <a
                   className={`${styles.link} ${styles.contacts}`}
-                  href={`mailto:${data.email}`}
+                  href={`mailto:${data?.email}`}
                   target="_blank"
                 >
                   <span>
@@ -193,16 +193,16 @@ export const Footer:FC<IFooterProps> = ({data}) => {
                       />
                     </svg>
                   </span>
-                  {data.email}
+                  {data?.email}
                 </a>
               ) : (
                 <p className={styles.noData}>Email: Нет данных</p>
               )}
-              {data.address ? (
+              {data?.address ? (
                 <a
                   className={`${styles.link} ${styles.contacts}`}
                   target="_blank"
-                  href={data.addressLink}
+                  href={data?.addressLink}
                 >
                   <span>
                     <svg
@@ -218,7 +218,7 @@ export const Footer:FC<IFooterProps> = ({data}) => {
                       />
                     </svg>
                   </span>
-                  {data.address}
+                  {data?.address}
                 </a>
               ) : (
                 <p className={styles.noData}>Адрес: Нет данных</p>

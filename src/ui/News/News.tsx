@@ -6,7 +6,7 @@ export const News = async () => {
   let data: INewsApiResponse["data"] = [];
 
   try {
-    const res = await fetch(`${process.env.API_URL}/api/news?populate=*`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news?populate=*`);
 
     if (!res.ok) {
       throw new Error(`Failed to fetch news: ${res.statusText}`);
@@ -27,7 +27,7 @@ export const News = async () => {
           {data?.map((newsItem) => {
             const { id, title, text, image } = newsItem;
 
-            const imageUrl = `${process.env.API_URL}${
+            const imageUrl = `${process.env.NEXT_PUBLIC_API_URL}${
               image?.formats?.medium?.url || image?.url
             }`;
 

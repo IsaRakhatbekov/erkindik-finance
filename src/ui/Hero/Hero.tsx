@@ -3,9 +3,14 @@ import Image from "next/image";
 import styles from "./Hero.module.scss";
 import heroImg from "@/public/images/heroBox.png";
 import heroBoxMobile from "@/public/images/heroBlackBox.svg";
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
+import { IContactsApiResponse } from "@/src/types/IContacts";
 
-export const Hero = () => {
+interface HeroProps {
+  contactsData: IContactsApiResponse["data"];
+}
+
+export const Hero: FC<HeroProps> = ({ contactsData }) => {
   const [box, setBox] = useState(false);
 
   const changeImg = () => {
@@ -33,7 +38,9 @@ export const Hero = () => {
               Инвестируйте в свое будущее с нами Надежные решения для вашего
               капитала
             </p>
-            <p className={styles.workTime}>График работы : 10.00 - 19.00</p>
+            <p
+              className={styles.workTime}
+            >{`График работы : ${contactsData?.schedule}`}</p>
             <div className={styles.btnWrapper}>
               <button className={`${styles.btn} ${styles.btnTransparent}`}>
                 Услуги
