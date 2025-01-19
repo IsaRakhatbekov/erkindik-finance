@@ -38,6 +38,12 @@
   }
 }
 
+.accordionLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .accordionBody {
   max-height: 0;
   opacity: 0;
