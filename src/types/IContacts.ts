@@ -4,6 +4,7 @@ interface IContactsData {
   address: string;
   addressLink: string;
   schedule: string;
+  googleMapsLink: string;
 }
 
 export interface IContactsApiResponse {

@@ -164,7 +164,8 @@ export default async function RootLayout({
     email: "lorem ipsum",
     address: "lorem ipsum",
     addressLink: "lorem ipsum",
-    schedule: "lorem ipsum"
+    schedule: "lorem ipsum",
+    googleMapsLink: "lorem ipsum"
   };
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contact`);

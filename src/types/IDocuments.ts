@@ -1,12 +1,16 @@
+import { BlocksContent } from "@strapi/blocks-react-renderer";
+
 export interface IDocumentsApiResponse {
   data: IDocumentBlock[];
 }
 
-interface IDocumentBlock {
-  id: number;
-  title: string;
-  file: IDocumentFile[];
+export interface IDocumentBlock {
+  id?: number;
+  accordionTitle: string;
+  accordionContent: BlocksContent;
+  files: IDocumentFile[];
 }
+
 
 export interface IDocumentFile {
   id: number;

@@ -1,14 +1,12 @@
 "use client";
 import { FC, useState } from "react";
 import styles from "./DocumentsAccordion.module.scss";
-import { IDocumentFile } from "@/src/types/IDocuments";
+import { IDocumentBlock } from "@/src/types/IDocuments";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
-interface IDocumentsAccordionProps {
-  title: string;
-  files: IDocumentFile[];
-}
+interface IDocumentsAccordionProps extends IDocumentBlock {}
 
-const DocumentsAccordion: FC<IDocumentsAccordionProps> = ({ title, files }) => {
+const DocumentsAccordion: FC<IDocumentsAccordionProps> = ({ accordionTitle, files, accordionContent }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const handleClickAccordion = (index: number) => {
@@ -23,7 +21,7 @@ const DocumentsAccordion: FC<IDocumentsAccordionProps> = ({ title, files }) => {
           activeIndex === 0 ? styles.accordionBtnActive : ""
         }`}
       >
-        {title}
+        {accordionTitle}
       </button>
       <ul
         className={`${styles.accordionBody} ${
@@ -31,7 +29,7 @@ const DocumentsAccordion: FC<IDocumentsAccordionProps> = ({ title, files }) => {
         }`}
       >
         {files?.map((file) => (
-          <li key={file.id} className={styles.accordionItem}>
+          <li key={file?.id} className={styles.accordionItem}>
             <a
               href={`${process.env.NEXT_PUBLIC_API_URL}${file?.url}`}
               target="_blank"
@@ -71,6 +69,7 @@ const DocumentsAccordion: FC<IDocumentsAccordionProps> = ({ title, files }) => {
             </a>
           </li>
         ))}
+        <BlocksRenderer content={accordionContent ?? []} />
       </ul>
     </li>
   );

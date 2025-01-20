@@ -28,10 +28,11 @@ export const SectionDocuments = async () => {
         <ul className={styles.accordionWrapper}>
           {data?.map((documentBlock) => (
             <DocumentsAccordion
-              key={documentBlock?.id}
-              title={documentBlock?.title}
-              files={documentBlock?.file}
-            />
+            key={documentBlock?.id}
+            accordionTitle={documentBlock?.accordionTitle}
+            accordionContent={documentBlock?.accordionContent}
+            files={documentBlock?.files}
+          />
           ))}
         </ul>
 
