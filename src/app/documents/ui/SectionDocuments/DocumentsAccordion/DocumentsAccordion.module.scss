@@ -22,7 +22,7 @@
   &::before {
     content: "";
     position: absolute;
-    top: 10px;
+    top: 19px;
     left: 14px;
     width: 6px;
     height: 10px;
@@ -49,15 +49,13 @@
   color: #0274be;
   font-size: 18px;
   line-height: 1.3em;
-  display: flex;
-  align-items: center;
-  gap: 5px;
 }
 
 .accordionLink {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-bottom: 10px;
 }
 
 .accordionBody {
