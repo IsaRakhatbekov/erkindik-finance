@@ -89,7 +89,7 @@ const DocumentsAccordion: FC<IDocumentsAccordionProps> = ({
               </a>
             ),
             list: ({ children }) => (
-              <div className={styles.accordionInnerItem}>{children}</div>
+              <ul className={styles.accordionInnerItem}>{children}</ul>
             ),
           }}
         />
