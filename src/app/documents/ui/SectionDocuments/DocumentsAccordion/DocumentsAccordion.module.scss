@@ -22,7 +22,7 @@
   &::before {
     content: "";
     position: absolute;
-    top: 19px;
+    top: 10px;
     left: 14px;
     width: 6px;
     height: 10px;
@@ -36,6 +36,22 @@
   &::before {
     transform: rotate(-90deg);
   }
+}
+
+.accordionInnerText {
+  font-size: 16px;
+  line-height: 1.3em;
+  color: var(--color-white);
+  margin-bottom: 10px;
+}
+
+.accordionInnerLink {
+  color: #0274be;
+  font-size: 18px;
+  line-height: 1.3em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .accordionLink {

@@ -6,7 +6,11 @@ import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
 interface IDocumentsAccordionProps extends IDocumentBlock {}
 
-const DocumentsAccordion: FC<IDocumentsAccordionProps> = ({ accordionTitle, files, accordionContent }) => {
+const DocumentsAccordion: FC<IDocumentsAccordionProps> = ({
+  accordionTitle,
+  files,
+  accordionContent,
+}) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const handleClickAccordion = (index: number) => {
@@ -69,7 +73,28 @@ const DocumentsAccordion: FC<IDocumentsAccordionProps> = ({ accordionTitle, file
             </a>
           </li>
         ))}
-        <BlocksRenderer content={accordionContent ?? []} />
+        <BlocksRenderer
+          content={accordionContent ?? []}
+          blocks={{
+            heading: ({ children }) => (
+              <h2 className={styles.accordionInnerTitle}>{children}</h2>
+            ),
+            paragraph: ({ children }) => (
+              <p className={styles.accordionInnerText}>{children}</p>
+            ),
+            link: ({ children, url }) => (
+              <a className={styles.accordionInnerLink} href={url}>
+                {">"}
+                {children}
+              </a>
+            ),
+            list: ({ children }) => (
+              <ul className={styles.accordionInnerList}>
+                <li className={styles.accordionInnerItem}>{children}</li>
+              </ul>
+            ),
+          }}
+        />
       </ul>
     </li>
   );
