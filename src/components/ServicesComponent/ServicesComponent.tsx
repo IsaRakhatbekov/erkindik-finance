@@ -7,7 +7,7 @@ import Services4 from "@/public/images/handAndCoinsSvg.svg";
 
 export const ServicesComponent = () => {
   return (
-    <section className={styles.services}>
+    <section className={styles.services} id="service">
       <div className={`${styles.servicesContainer} container`}>
         <h2 className={`${styles.title} def-title`}>Услуги</h2>
         <ul className={styles.list}>

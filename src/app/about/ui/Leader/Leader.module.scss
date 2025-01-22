@@ -20,7 +20,7 @@
   .imgWrapper {
     width: 100%;
     max-width: 400px;
-    height: 380px;
+    height: 500px;
     border-radius: 19px;
     overflow: hidden;
 
@@ -42,6 +42,10 @@
     .imgWrapper {
       max-width: 100%;
       max-height: 300px;
+
+      & img {
+        object-fit: contain;
+      }
     }
 
     .text {

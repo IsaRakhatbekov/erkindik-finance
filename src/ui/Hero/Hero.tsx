@@ -5,6 +5,7 @@ import heroImg from "@/public/images/heroBox.png";
 import heroBoxMobile from "@/public/images/heroBlackBox.svg";
 import { FC, useEffect, useState } from "react";
 import { IContactsApiResponse } from "@/src/types/IContacts";
+import Link from "next/link";
 
 interface HeroProps {
   contactsData: IContactsApiResponse["data"];
@@ -42,12 +43,18 @@ export const Hero: FC<HeroProps> = ({ contactsData }) => {
               className={styles.workTime}
             >{`График работы : ${contactsData?.schedule}`}</p>
             <div className={styles.btnWrapper}>
-              <button className={`${styles.btn} ${styles.btnTransparent}`}>
+              <Link
+                href={"/service"}
+                className={`${styles.btn} ${styles.btnTransparent}`}
+              >
                 Услуги
-              </button>
-              <button className={`${styles.btn} ${styles.btnYellow}`}>
+              </Link>
+              <Link
+                href="/documents"
+                className={`${styles.btn} ${styles.btnYellow}`}
+              >
                 Стать инвестором
-              </button>
+              </Link>
             </div>
           </li>
           <li className={styles.imgWrapper}>

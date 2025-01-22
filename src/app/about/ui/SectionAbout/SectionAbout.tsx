@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./SectionAbout.module.scss";
-import heroImg from "@/public/images/pageAbout/aboutHeroBg.png";
+import heroImg from "@/public/images/pageAbout/aboutHeroImg.png";
 
 export const SectionAbout = () => {
   return (

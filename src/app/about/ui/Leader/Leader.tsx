@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./Leader.module.scss";
-import leader from "@/public/images/pageAbout/leader.png";
+import leader from "@/public/images/pageAbout/liderImg.png";
 export const Leader = () => {
   return (
     <section className={styles.leader}>
