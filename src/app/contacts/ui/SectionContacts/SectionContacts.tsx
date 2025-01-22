@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useState } from "react";
 import styles from "./SectionContacts.module.scss";
 
@@ -9,7 +9,9 @@ export const SectionContacts = () => {
     comment: "",
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
 
     if (name === "phone") {
@@ -63,7 +65,7 @@ export const SectionContacts = () => {
             </button>
           </form>
           <ul className={styles.right}>
-          <li className={styles.item}>
+            <li className={styles.item}>
               <a
                 className={styles.link}
                 href="mailto:info@erkindikfinance.kg"
@@ -88,7 +90,7 @@ export const SectionContacts = () => {
             </li>
             <li className={styles.item}>
               <a className={styles.link} href="tel:+996708148878">
-              <span>
+                <span>
                   <svg
                     width="37"
                     height="42"
@@ -108,14 +110,15 @@ export const SectionContacts = () => {
             <li>
               <p className={styles.text}>
                 <span>Юридический адрес: </span>
-                720021, Кыргызская Республика, г. Бишкек, ул. Гоголя, 28
+                720021, Кыргызская Республика, г.Бишкек, ул. Ибраимова 115\1, БЦ
+                "Асыл-Таш" 4-этаж
               </p>
             </li>
             <li>
               <p className={styles.text}>
                 <span>Фактический адрес: </span>
-                720021, Кыргызская Республика, г. Бишкек, ул. Ибраимова, 115, БЦ
-                «Асыл-Таш», 4-этаж
+                720021, Кыргызская Республика, г.Бишкек, ул. Ибраимова 115\1, БЦ
+                "Асыл-Таш" 4-этаж
               </p>
             </li>
           </ul>
