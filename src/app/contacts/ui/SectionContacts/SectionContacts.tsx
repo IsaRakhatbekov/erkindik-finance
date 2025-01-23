@@ -104,7 +104,7 @@ export const SectionContacts = () => {
                     />
                   </svg>
                 </span>
-                +996 70814 88 78
+                +996 708 14 88 78
               </a>
             </li>
             <li>

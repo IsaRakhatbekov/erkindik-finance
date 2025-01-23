@@ -34,9 +34,10 @@ export const Offers = () => {
             <div className={styles.imgWrapper}>
               <Image src={offers3} alt="" />
             </div>
-            <h4 className={styles.innerTitle}>Предоставить ссуду</h4>
+            <h4 className={styles.innerTitle}>Репо сделки </h4>
             <p className={styles.text}>
-              конвертация денежных средств из одной валюты в другую
+              Покупка ценных бумаг с обязательством их последующего выкупа по
+              заранее установленной цене.
             </p>
           </li>
         </ul>

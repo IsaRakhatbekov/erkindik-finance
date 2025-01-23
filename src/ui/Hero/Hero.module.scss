@@ -1,7 +1,7 @@
 .hero {
+  padding: 200px 0 100px;
   position: relative;
   width: 100%;
-  height: 100vh;
   background: url("../../../public/images/heroBg.png") no-repeat center/cover;
   z-index: -1;
   background-attachment: fixed;
@@ -116,6 +116,7 @@
 
 @media (max-width: 991px) {
   .hero {
+    padding: 100px 0 50px;
     .title {
       font-size: 30px;
     }
@@ -128,6 +129,7 @@
 
 @media (max-width: 768px) {
   .hero {
+    padding: 130px 0 50px;
     .wrapper {
       flex-direction: column;
     }

@@ -6,22 +6,22 @@ import { FC } from "react";
 import { IContactsApiResponse } from "@/src/types/IContacts";
 
 interface IFooterProps {
-  data: IContactsApiResponse['data'];
+  data: IContactsApiResponse["data"];
 }
 
-export const Footer:FC<IFooterProps> = ({data}) => {
+export const Footer: FC<IFooterProps> = ({ data }) => {
   return (
     <footer className={styles.footer}>
       <div className={`${styles.footerCOntainer} container`}>
         <div className={styles.wrapper}>
           <div className={styles.left}>
-            <div className={styles.imgWrapper}>
+            <Link href="/" className={styles.logo}>
               <Image src={logo} alt="Логотип" />
-            </div>
+            </Link>
             <p className={styles.text}>
-              Эркиндик финанс осуществляет полный спектр профессиональной
-              деятельности на европейском, американском, российском и кыргызском
-              рынках ценных бумаг.
+              ОсОО «Эркиндик Файненс» осуществляет полный спектр
+              профессиональной деятельности на европейском, американском,
+              российском и кыргызском рынках ценных бумаг.
             </p>
             <ul className={styles.socialWrapper}>
               <li className={styles.socialItem}>
@@ -119,31 +119,32 @@ export const Footer:FC<IFooterProps> = ({data}) => {
           <ul className={styles.list}>
             <li className={styles.item}>
               <h5 className={styles.innerTitle}>Страницы</h5>
-              <Link className={styles.link} href="">
+              <Link className={styles.link} href="/">
                 Главная
               </Link>
-              <Link className={styles.link} href="">
-                О нас
-              </Link>
-              <Link className={styles.link} href="">
+              <Link className={styles.link} href="/service">
                 Услуги
               </Link>
-              <Link className={styles.link} href="">
-                Контакты
-              </Link>
-              <Link className={styles.link} href="">
+              <Link className={styles.link} href="/documents">
                 Документы
+              </Link>
+              <Link className={styles.link} href="/about">
+                О нас
+              </Link>
+
+              <Link className={styles.link} href="/contacts">
+                Контакты
               </Link>
             </li>
             <li className={styles.item}>
               <h5 className={styles.innerTitle}>Услуги</h5>
-              <Link className={styles.link} href="">
+              <Link className={styles.link} href="/documents">
                 Покупка/продажа
               </Link>
-              <Link className={styles.link} href="">
+              <Link className={styles.link} href="/documents">
                 Ценные бумаги
               </Link>
-              <Link className={styles.link} href="">
+              <Link className={styles.link} href="/documents">
                 Конвертация
               </Link>
             </li>
