@@ -73,22 +73,6 @@
       justify-content: center;
     }
   }
-
-  .socialWrapper {
-    gap: 20px;
-    display: flex;
-    align-items: center;
-  }
-
-  .socialIcons {
-    width: 25px;
-    height: 25px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
 }
 
 @media (max-width: 768px) {
