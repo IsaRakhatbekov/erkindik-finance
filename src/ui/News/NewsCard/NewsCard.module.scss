@@ -86,6 +86,7 @@
   margin: 0 auto;
   border: 1px solid var(--color-yellow);
   transition: all 0.3s;
+  cursor: pointer;
 
   &:hover {
     color: var(--color-yellow);

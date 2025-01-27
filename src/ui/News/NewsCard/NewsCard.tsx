@@ -23,7 +23,7 @@ export const NewsCard: FC<INewsCard> = ({ image, title, text, link }) => {
       <div className={styles.inner}>
         <h4 className={styles.innerTitle}>{title}</h4>
         <p className={styles.text}>{text}</p>
-        <a href={link} className={styles.innerBtn}>
+        <a href={link} className={styles.innerBtn} target="_blank">
           Подробнее
         </a>
       </div>
