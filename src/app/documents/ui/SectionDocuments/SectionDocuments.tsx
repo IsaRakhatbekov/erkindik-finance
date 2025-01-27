@@ -6,7 +6,9 @@ export const SectionDocuments = async () => {
   let data: IDocumentsApiResponse["data"] = [];
 
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/docs?populate=*`);
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/docs?populate=*`
+    );
 
     if (!res.ok) {
       throw new Error(`Failed to fetch news: ${res.statusText}`);
@@ -28,28 +30,13 @@ export const SectionDocuments = async () => {
         <ul className={styles.accordionWrapper}>
           {data?.map((documentBlock) => (
             <DocumentsAccordion
-            key={documentBlock?.id}
-            accordionTitle={documentBlock?.accordionTitle}
-            accordionContent={documentBlock?.accordionContent}
-            files={documentBlock?.files}
-          />
+              key={documentBlock?.id}
+              accordionTitle={documentBlock?.accordionTitle}
+              accordionContent={documentBlock?.accordionContent}
+              files={documentBlock?.files}
+            />
           ))}
         </ul>
-
-        <h2 className={`${styles.documentsTitle} def-title`}>
-          Законодательство
-        </h2>
-        <div className={styles.law}>
-          <p className={styles.lawText}>
-            Положение о допуске ценных бумаг, выпущенных эмитентами других
-            государств, к публичному предложению на территории Кыргызской
-            Республики
-          </p>
-          <p className={styles.lawText}>
-            Закон КР «О противодействии финансированию террористической
-            деятельности и легализации (отмыванию) преступных доходов»
-          </p>
-        </div>
       </div>
     </section>
   );

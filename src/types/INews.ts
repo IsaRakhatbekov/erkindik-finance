@@ -15,6 +15,7 @@ interface INewsData {
   title: string;
   text: string;
   image: INewsImage;
+  link: string
 }
 
 export interface INewsApiResponse {
