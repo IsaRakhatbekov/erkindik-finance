@@ -3,33 +3,26 @@ import Image from "next/image";
 import styles from "./Header.module.scss";
 import logo from "@/public/images/logo.svg";
 import { FC, useEffect, useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation"; // Hook для получения текущего пути
+import { Link, routing } from "@/src/i18n/routing";
+import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import LocaleSwitcher from "../LocaleSwitcher/LocaleSwitcher";
 
 interface IHeaderProps {
   phone: string;
 }
 
 export const Header: FC<IHeaderProps> = ({ phone }) => {
+  const t = useTranslations("Header");
   const [burger, setBurger] = useState(false);
-  const pathname = usePathname(); // Получаем текущий путь
+  const pathname = usePathname();
 
   const handleClickBurger = () => {
     setBurger((prev) => !prev);
   };
 
-  // const handleScrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-  //   if (href.startsWith("#")) {
-  //     e.preventDefault(); // Останавливаем стандартное поведение ссылки
-  //     const targetSection = document.getElementById(href.slice(1)); // Получаем id секции
-  //     if (targetSection) {
-  //       targetSection.scrollIntoView({ behavior: "smooth" }); // Прокрутка до секции
-  //     }
-  //   }
-  // };
-
   const handleMobileLinkClick = () => {
-    setBurger(false); // Закрываем меню при клике на мобильные ссылки
+    setBurger(false);
   };
 
   useEffect(() => {
@@ -57,10 +50,12 @@ export const Header: FC<IHeaderProps> = ({ phone }) => {
                 href="/"
                 onClick={handleMobileLinkClick}
                 className={`${styles.link} ${
-                  pathname === "/" ? styles.active : ""
+                  routing.locales.some((lang) => pathname.endsWith(lang))
+                    ? styles.active
+                    : ""
                 }`}
               >
-                Главная
+                {t("link1")}
               </Link>
             </li>
             <li className={styles.item}>
@@ -68,10 +63,10 @@ export const Header: FC<IHeaderProps> = ({ phone }) => {
                 href="/service"
                 onClick={handleMobileLinkClick}
                 className={`${styles.link} ${
-                  pathname === "/service" ? styles.active : ""
+                  pathname.endsWith("/service") ? styles.active : ""
                 }`}
               >
-                Услуги
+                {t("link2")}
               </Link>
             </li>
             <li className={styles.item}>
@@ -79,10 +74,10 @@ export const Header: FC<IHeaderProps> = ({ phone }) => {
                 href="/documents"
                 onClick={handleMobileLinkClick}
                 className={`${styles.link} ${
-                  pathname === "/documents" ? styles.active : ""
+                  pathname.endsWith("/documents") ? styles.active : ""
                 }`}
               >
-                Документы
+                {t("link3")}
               </Link>
             </li>
             <li className={styles.item}>
@@ -90,10 +85,10 @@ export const Header: FC<IHeaderProps> = ({ phone }) => {
                 href="/about"
                 onClick={handleMobileLinkClick}
                 className={`${styles.link} ${
-                  pathname === "/about" ? styles.active : ""
+                  pathname.endsWith("/about") ? styles.active : ""
                 }`}
               >
-                О нас
+                {t("link4")}
               </Link>
             </li>
             <li className={styles.item}>
@@ -101,10 +96,10 @@ export const Header: FC<IHeaderProps> = ({ phone }) => {
                 href="/#news"
                 onClick={handleMobileLinkClick}
                 className={`${styles.link} ${
-                  pathname === "/#news" ? styles.active : ""
+                  pathname.endsWith("#news") ? styles.active : ""
                 }`}
               >
-                Новости
+                {t("link5")}
               </Link>
             </li>
             <li className={styles.item}>
@@ -112,11 +107,14 @@ export const Header: FC<IHeaderProps> = ({ phone }) => {
                 href="/contacts"
                 onClick={handleMobileLinkClick}
                 className={`${styles.link} ${
-                  pathname === "/contacts" ? styles.active : ""
+                  pathname.endsWith("/contacts") ? styles.active : ""
                 }`}
               >
-                Контакты
+                {t("link6")}
               </Link>
+            </li>
+            <li>
+              <LocaleSwitcher />
             </li>
           </ul>
           <div className={styles.phoneWrapper}>
@@ -143,10 +141,12 @@ export const Header: FC<IHeaderProps> = ({ phone }) => {
                   href="/"
                   onClick={handleMobileLinkClick}
                   className={`${styles.mobileLink} ${
-                    pathname === "/" ? styles.active : ""
+                    routing.locales.some((lang) => pathname.endsWith(lang))
+                      ? styles.active
+                      : ""
                   }`}
                 >
-                  Главная
+                  {t("link1")}
                 </Link>
               </li>
               <li className={styles.mobileItem}>
@@ -154,10 +154,10 @@ export const Header: FC<IHeaderProps> = ({ phone }) => {
                   href="/service"
                   onClick={handleMobileLinkClick}
                   className={`${styles.mobileLink} ${
-                    pathname === "/service" ? styles.active : ""
+                    pathname.endsWith("/service") ? styles.active : ""
                   }`}
                 >
-                  Услуги
+                  {t("link2")}
                 </Link>
               </li>
               <li className={styles.mobileItem}>
@@ -165,10 +165,10 @@ export const Header: FC<IHeaderProps> = ({ phone }) => {
                   href="/documents"
                   onClick={handleMobileLinkClick}
                   className={`${styles.mobileLink} ${
-                    pathname === "/documents" ? styles.active : ""
+                    pathname.endsWith("/documents") ? styles.active : ""
                   }`}
                 >
-                  Документы
+                  {t("link3")}
                 </Link>
               </li>
               <li className={styles.mobileItem}>
@@ -176,10 +176,10 @@ export const Header: FC<IHeaderProps> = ({ phone }) => {
                   href="/about"
                   onClick={handleMobileLinkClick}
                   className={`${styles.mobileLink} ${
-                    pathname === "/about" ? styles.active : ""
+                    pathname.endsWith("/about") ? styles.active : ""
                   }`}
                 >
-                  О нас
+                  {t("link4")}
                 </Link>
               </li>
               <li className={styles.mobileItem}>
@@ -187,10 +187,10 @@ export const Header: FC<IHeaderProps> = ({ phone }) => {
                   href="/#news"
                   onClick={handleMobileLinkClick}
                   className={`${styles.mobileLink} ${
-                    pathname === "/#news" ? styles.active : ""
+                    pathname.endsWith("#news") ? styles.active : ""
                   }`}
                 >
-                  Новости
+                  {t("link5")}
                 </Link>
               </li>
               <li className={styles.mobileItem}>
@@ -198,10 +198,10 @@ export const Header: FC<IHeaderProps> = ({ phone }) => {
                   href="/contacts"
                   onClick={handleMobileLinkClick}
                   className={`${styles.mobileLink} ${
-                    pathname === "/contacts" ? styles.active : ""
+                    pathname.endsWith("/contacts") ? styles.active : ""
                   }`}
                 >
-                  Контакты
+                  {t("link6")}
                 </Link>
               </li>
             </ul>

@@ -6,14 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "prepare": "husky"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@strapi/blocks-react-renderer": "^1.0.1",
-    "axios": "^1.7.9",
+    "@strapi/blocks-react-renderer": "^1.0.2",
     "husky": "^9.1.7",
     "next": "15.1.2",
+    "next-intl": "^3.26.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sass": "^1.83.0"

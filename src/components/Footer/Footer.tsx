@@ -1,15 +1,17 @@
 import Image from "next/image";
 import styles from "./Footer.module.scss";
 import logo from "@/public/images/logo.svg";
-import Link from "next/link";
+import { Link } from "@/src/i18n/routing";
 import { FC } from "react";
 import { IContactsApiResponse } from "@/src/types/IContacts";
+import { useTranslations } from "next-intl";
 
 interface IFooterProps {
   data: IContactsApiResponse["data"];
 }
 
 export const Footer: FC<IFooterProps> = ({ data }) => {
+  const t = useTranslations();
   return (
     <footer className={styles.footer}>
       <div className={`${styles.footerCOntainer} container`}>
@@ -18,46 +20,42 @@ export const Footer: FC<IFooterProps> = ({ data }) => {
             <Link href="/" className={styles.logo}>
               <Image src={logo} alt="Логотип" />
             </Link>
-            <p className={styles.text}>
-              ОсОО «Эркиндик Файненс» осуществляет полный спектр
-              профессиональной деятельности на европейском, американском,
-              российском и кыргызском рынках ценных бумаг.
-            </p>
+            <p className={styles.text}>{t("Footer.text")}</p>
           </div>
           <ul className={styles.list}>
             <li className={styles.item}>
-              <h5 className={styles.innerTitle}>Страницы</h5>
+              <h5 className={styles.innerTitle}>{t("Footer.innerTitle1")}</h5>
               <Link className={styles.link} href="/">
-                Главная
+                {t("Header.link1")}
               </Link>
               <Link className={styles.link} href="/service">
-                Услуги
+                {t("Header.link2")}
               </Link>
               <Link className={styles.link} href="/documents">
-                Документы
+                {t("Header.link3")}
               </Link>
               <Link className={styles.link} href="/about">
-                О нас
+                {t("Header.link4")}
               </Link>
 
               <Link className={styles.link} href="/contacts">
-                Контакты
+                {t("Header.link6")}
               </Link>
             </li>
             <li className={styles.item}>
-              <h5 className={styles.innerTitle}>Услуги</h5>
+              <h5 className={styles.innerTitle}>{t("Footer.innerTitle2")}</h5>
               <Link className={styles.link} href="/documents">
-                Покупка/продажа
+                {t("Footer.link1")}
               </Link>
               <Link className={styles.link} href="/documents">
-                Ценные бумаги
+                {t("Footer.link2")}
               </Link>
               <Link className={styles.link} href="/documents">
-                Конвертация
+                {t("Footer.link3")}
               </Link>
             </li>
             <li className={styles.item}>
-              <h5 className={styles.innerTitle}>Контакты</h5>
+              <h5 className={styles.innerTitle}>{t("Footer.innerTitle3")}</h5>
               {data?.phone ? (
                 <a
                   className={`${styles.link} ${styles.contacts}`}
@@ -80,7 +78,7 @@ export const Footer: FC<IFooterProps> = ({ data }) => {
                   +{data?.phone}
                 </a>
               ) : (
-                <p className={styles.noData}>Телефон: Нет данных</p>
+                <p className={styles.noData}>Phone: Cannot fetch data</p>
               )}
               {data?.email ? (
                 <a
@@ -105,7 +103,7 @@ export const Footer: FC<IFooterProps> = ({ data }) => {
                   {data?.email}
                 </a>
               ) : (
-                <p className={styles.noData}>Email: Нет данных</p>
+                <p className={styles.noData}>Email: Cannot fetch data</p>
               )}
               {data?.address ? (
                 <a
@@ -130,7 +128,7 @@ export const Footer: FC<IFooterProps> = ({ data }) => {
                   {data?.address}
                 </a>
               ) : (
-                <p className={styles.noData}>Адрес: Нет данных</p>
+                <p className={styles.noData}>Адрес: Cannot fetch data</p>
               )}
             </li>
           </ul>
