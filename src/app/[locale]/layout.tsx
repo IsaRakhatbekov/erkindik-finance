@@ -185,7 +185,7 @@ export default async function LocaleLayout({
   };
 
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contact`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contact?locale=${locale}`);
     if (!res.ok) {
       throw new Error("Failed to fetch contacts");
     }

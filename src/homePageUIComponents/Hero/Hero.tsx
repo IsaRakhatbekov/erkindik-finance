@@ -3,10 +3,11 @@ import { FC } from "react";
 import { IContactsApiResponse } from "@/src/types/IContacts";
 import { Link } from "@/src/i18n/routing";
 import { ResponsiveImage } from "./ResponsiveImageClient/ResponsiveImageClient";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 export const Hero: FC = async () => {
   const t = await getTranslations("HomePage.Hero");
+  const locale = await getLocale();
 
   let contactsData: IContactsApiResponse["data"] = {
     phone: "lorem ipsum",
@@ -18,7 +19,7 @@ export const Hero: FC = async () => {
   };
 
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contact`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contact?locale=${locale}`);
     if (!res.ok) {
       throw new Error("Failed to fetch contacts");
     }

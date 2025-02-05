@@ -1,15 +1,16 @@
 import { INewsApiResponse } from "@/src/types/INews";
 import styles from "./News.module.scss";
 import { NewsCard } from "./NewsCard/NewsCard";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 export const News = async () => {
-  const t = await getTranslations("HomePage.News")
+  const t = await getTranslations("HomePage.News");
+  const locale = await getLocale();
   let data: INewsApiResponse["data"] = [];
 
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/news?populate=*`
+      `${process.env.NEXT_PUBLIC_API_URL}/api/news?populate=*&locale=${locale}`
     );
 
     if (!res.ok) {

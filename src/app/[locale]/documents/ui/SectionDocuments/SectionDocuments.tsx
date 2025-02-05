@@ -1,15 +1,16 @@
 import { IDocumentsApiResponse } from "@/src/types/IDocuments";
 import DocumentsAccordion from "./DocumentsAccordion/DocumentsAccordion";
 import styles from "./SectionDocuments.module.scss";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 export const SectionDocuments = async () => {
   const t = await getTranslations("Documents.SectionDocuments");
+  const locale = await getLocale();
   let data: IDocumentsApiResponse["data"] = [];
 
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/docs?populate=*`
+      `${process.env.NEXT_PUBLIC_API_URL}/api/docs?populate=*&locale=${locale}`
     );
 
     if (!res.ok) {
