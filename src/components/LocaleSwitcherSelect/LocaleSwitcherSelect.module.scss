@@ -1,0 +1,30 @@
+.localeWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.localeSelect {
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 14px;
+  padding: 5px 5px 5px 0;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  option {
+    background: #1a1a1a; // Цвет фона для раскрывающегося списка
+    color: white;
+  }
+}
+
+.arrow {
+  position: absolute;
+  right: 10px;
+  pointer-events: none;
+}

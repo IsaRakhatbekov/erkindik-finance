@@ -1,8 +1,9 @@
 "use client";
 
-import { useParams } from "next/navigation";
 import { ChangeEvent, ReactNode, useTransition } from "react";
 import { Locale, usePathname, useRouter } from "@/src/i18n/routing";
+import styles from "./LocaleSwitcherSelect.module.scss";
+import Image from "next/image";
 
 type Props = {
   children: ReactNode;
@@ -16,31 +17,36 @@ export default function LocaleSwitcherSelect({
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
-  const params = useParams();
 
   function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
     const nextLocale = event.target.value as Locale;
     startTransition(() => {
       router.replace(
-        // @ts-expect-error -- TypeScript will validate that only known `params`
-        // are used in combination with a given `pathname`. Since the two will
-        // always match for the current route, we can skip runtime checks.
-        { pathname, params },
+        { pathname }, // Убираем `params`, так как он не поддерживается
         { locale: nextLocale }
       );
     });
   }
 
   return (
-    <label>
+    <div className={styles.localeWrapper}>
       <select
         defaultValue={defaultValue}
         disabled={isPending}
         onChange={onSelectChange}
+        className={styles.localeSelect}
       >
         {children}
       </select>
-      <span>⌄</span>
-    </label>
+      <svg
+        width="10"
+        height="6"
+        viewBox="0 0 10 6"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M5 5.5L0 0.5H10L5 5.5Z" fill="#E5E3EA" />
+      </svg>
+    </div>
   );
 }

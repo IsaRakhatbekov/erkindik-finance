@@ -1,10 +1,21 @@
 .hero {
   padding: 200px 0 100px;
+  overflow: hidden;
   position: relative;
   width: 100%;
-  background: url("../../../public/images/heroBg.png") no-repeat center/cover;
   z-index: -1;
   background-attachment: fixed;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 10%;
+    right: -25%;
+    background: url("../../../public/images/heroBg.png") no-repeat center/cover;
+    z-index: -1;
+  }
 
   .heroContainer {
     display: flex;
@@ -130,6 +141,19 @@
 @media (max-width: 768px) {
   .hero {
     padding: 130px 0 50px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 50%;
+      right: 0%;
+      background: url("../../../public/images/heroBg.png") no-repeat
+        center/cover;
+      z-index: -2;
+    }
+
     .wrapper {
       flex-direction: column;
     }
