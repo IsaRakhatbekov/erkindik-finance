@@ -19,85 +19,86 @@
       "title": "News"
     },
     "Why": {
-      "title": "Почему мы ?",
-      "innerTitle1": "Охват",
-      "text1": "ОсОО «Эркиндик Файненс» осуществляет полный спектр профессиональной деятельности на европейском, американском, российском и кыргызском рынках ценных бумаг.",
-      "innerTitle2": "Современный подход",
-      "text2": "Мы строим простые и сложные инвестиционные стратегии, которые ограничивают риск и позволяет зарабатывать даже в кризисные периоды.",
-      "innerTitle3": "Успешные стратегии",
-      "text3": "Мы предлагаем инновационные и уникальное многообразие стратегий доверительного управления в зависимости от инвестиционных предпочтений Клиента."
+      "title": "Why chouse us ?",
+      "innerTitle1": "Coverage",
+      "text1": "Erkindik Finance provides a full range of professional activities in the European, American, Russian, and Kyrgyz securities markets.",
+      "innerTitle2": "Modern Approach",
+      "text2": "We build simple and complex investment strategies that limit risk and allow you to earn even in times of crisis.",
+      "innerTitle3": "Successful Strategies",
+      "text3": "We offer innovative and uniquely diverse trust management strategies depending on the Client's investment preferences."
     },
     "ServicesComponent": {
-      "title": "Услуги",
-      "innerTitle1": "Покупка/Продажа",
-      "text1": "Покупка и продажа финансовых инструментов — это процессы, которые осуществляются для передачи прав на активы между продавцом и покупателем. Эти операции происходят на финансовых рынках и могут быть связаны с различными видами инструментов, такими как акции, облигации, деривативы, валюты, криптовалюты и другие активы",
-      "innerTitle2": "Перевод финансовых инструментов",
-      "text2": "Перевод финансовых инструментов — это процесс передачи прав собственности на финансовые активы от одного лица (или организации) к другому. В отличие от конвертации валют, перевод финансовых инструментов может охватывать более широкий спектр операций, включая перевод акций, облигаций, деривативов, других ценных бумаг, а также денежных средств, которые выражаются в этих инструментах.",
-      "innerTitle3": "Конвертация денежных средств",
-      "text3": "Конвертация денежных средств — это процесс обмена одной валюты на другую. Этот процесс может происходить как на рынке валют, так и в рамках различных финансовых услуг. Конвертация может быть необходима для проведения международных расчетов, поездок за границу, инвестиций или ведения бизнеса в различных странах.",
-      "innerTitle4": "Операция Брокера",
-      "text4": "Операции брокера — это финансовые и торговые действия, которые брокер выполняет от имени клиента. Брокер действует как посредник между покупателями и продавцами финансовых инструментов (акции, облигации, деривативы, валюты и другие активы). Он предоставляет своим клиентам доступ к рынкам и помогает им выполнять различные финансовые операции. Брокеры могут работать как с розничными, так и с институциональными клиентами."
+      "title": "Services",
+      "innerTitle1": "Buying/Selling",
+      "text1": "The buying and selling of financial instruments are processes that are carried out to transfer rights to assets between a seller and a buyer. These transactions take place in financial markets and can involve different types of instruments such as stocks, bonds, derivatives, currencies, cryptocurrencies and other assets",
+      "innerTitle2": "Translation of financial instruments",
+      "text2": "A financial instrument transfer is the process of transferring ownership of financial assets from one person (or organization) to another.Unlike currency conversion, the transfer of financial instruments can cover a wider range of transactions, including the transfer of stocks, bonds, derivatives, other securities, and the cash that is denominated in those instruments.",
+      "innerTitle3": "Cash conversion ",
+      "text3": "Cash conversion is the process of exchanging one currency for another.This process can take place either in the currency market or as part of various financial services. Conversion may be necessary for making international payments, traveling abroad, investing or doing business in different countries.",
+      "innerTitle4": "Broker's operation",
+      "text4": "Brokerage operations are financial and trading activities that a broker performs on behalf of a client.A broker acts as an intermediary between buyers and sellers of financial instruments (stocks, bonds, derivatives, currencies and other assets).It provides its clients with access to the markets and helps them perform various financial transactions. Brokers can work with both retail and institutional clients." 
     },
     "Offers": {
-      "title": "Что мы предоставляем ?",
-      "innerTitle1": "Покупка и продажа",
-      "text1": "Финансовых Инструментов Акции, Облигации ИТД",
-      "innerTitle2": "Конвертация",
-      "text2": "Конвертация денежных средств из одной валюты в другую",
-      "innerTitle3": "Репо сделки",
-      "text3": "Покупка ценных бумаг с обязательством их последующего выкупа по заранее установленной цене."
+      "title": "What do we provide ?",
+      "innerTitle1": "Buying and selling",
+      "text1": "Financial Instruments Shares, Bonds ITD",
+      "innerTitle2": "Conversion",
+      "text2": "Conversion of funds from one currency to another",
+      "innerTitle3": "Make a loan",
+      "text3": "Conversion of funds from one currency to another"
     },
     "Partners": {
-      "title": "Наши партнеры"
+      "title": "Our partners"
     }
   },
   "About": {
     "SectionAbout": {
-      "title": "О нас",
-      "text1": "Компания «Эркиндик Файненс» — это надёжный брокер, который предоставляет клиентам полный спектр услуг на финансовых рынках. Мы помогаем эффективно управлять вашими активами, осуществлять сделки с ценными бумагами и валютами, а также обеспечиваем сохранность ваших финансовых инструментов.",
-      "text2": "Мы работаем с клиентами по всему миру и предоставляем услуги в различных валютах, таких как KGS, USD, EUR, CNY, и другие. Основные направления переводов — Кыргызстан, Турция, ОАЭ и Гонконг."
+      "title": "About us",
+      "text1": "Erkindik Finance is a reliable broker that provides clients with a full range of services in the financial markets. We help you effectively manage your assets, conduct transactions with securities and currencies, and ensure the safety of your financial instruments.",
+      "text2": "We work with clients all over the world and provide services in various currencies such as KGS, USD, EUR, CNY, and others.The main transfer destinations are Kyrgyzstan, Turkey, UAE and Hong Kong."
     },
     "Advantages": {
-      "title": "Наши плюсы",
-      "innerTitle1": "Надёжность",
-      "text1": "Работаем с проверенными партнёрами.",
-      "innerTitle2": "Индивидуальный подход",
-      "text2": "Учитываем ваши потребности.",
-      "innerTitle3": "Экспертность",
-      "text3": "Помогаем достичь финансовых целей"
+      "title": "Our pluses",
+      "innerTitle1": "Reliability",
+      "text1": "We work with trusted partners.",
+      "innerTitle2": "Individual approach",
+      "text2": "We take your needs into account.",
+      "innerTitle3": "Expertise",
+      "text3": "Helping you achieve your financial goals"
     },
     "Leader": {
-      "title": "Наш Лидер",
-      "text1": "Тилек Жумабекович Асанов — опытный и высококвалифицированный специалист с более чем 10-летним опытом работы в финансовом секторе, включая микрофинансирование, банковское дело и бухгалтерию. Он является выдающимся профессионалом, способным эффективно управлять финансовыми процессами, обеспечивать развитие бизнеса и стратегическое планирование.",
+      "title": "Our Leader",
+      "text1": "Tilek Zhumabekovich Asanov is an experienced and highly qualified professional with more than 10 years of experience in the financial sector, including microfinance, banking and accounting.He is an outstanding professional able to effectively manage financial processes, ensure business development and strategic planning.",
       "text2": "Выпускник Кыргызского экономического университета, обладатель дипломов бакалавра и среднего специального образования в области финансов и бухгалтерского учета. Тилек Жумабекович также прошел несколько специализированных курсов, включая сертификаты по международным стандартам финансовой отчетности (МСФО), банковским и финансовым вопросам, а также сертификаты, подтверждающие его опыт в управлении и развитии микрофинансовых организаций.",
-      "text3": "За свою карьеру он успешно прошел путь от помощника кредитного специалиста до управляющего филиалом в компании ЗАО МФК «Элет-Капитал». Благодаря своей высокой компетенции в финансовом планировании, анализе, управлении рисками и защите прав потребителей, он заслужил признание в профессиональной среде."
+      "text3": "During his career, he has successfully worked his way up from an assistant loan officer to branch manager at Elet Capital IFC CJSC.Due to his high competence in financial planning, analysis, risk management and consumer protection, he has earned recognition in the professional environment."
     }
   },
   "Contacts": {
     "SectionContacts": {
-      "inputPhone": "Ваш номер телефона",
-      "inputName": "Ваше имя",
-      "inputComment": "Комментарий",
-      "button": "Связаться",
-      "address1": "Юридический адрес: ",
-      "address2": "Фактический адрес: "
+      "title": "Contacts",
+      "inputPhone": "Your phone number",
+      "inputName": "Your name",
+      "inputComment": "Commentary",
+      "button": "Contact",
+      "address1": "Legal address: ",
+      "address2": "Actual (mailing) address: "
     },
     "Map": {
-      "title": "Мы на карте"
+      "title": "We're on the map"
     }
   },
   "Documents": {
     "SectionDocuments": {
-      "title": "Документы и ссылки"
+      "title": "Documents and references"
     }
   },
   "Footer": {
-    "text": "ОсОО «Эркиндик Файненс» осуществляет полный спектр профессиональной деятельности на европейском, американском, российском и кыргызском рынках ценных бумаг.",
-    "innerTitle1": "Страницы",
-    "innerTitle2": "Услуги",
-    "link1": "Покупка/продажа",
-    "link2": "Ценные бумаги",
-    "link3": "Конвертация",
-    "innerTitle3": "Контакты"
+    "text": "Erkindik Finance LLP carries out a full range of professional activities in the European, American, Russian and Kyrgyz securities markets.",
+    "innerTitle1": "Pages",
+    "innerTitle2": "Services",
+    "link1": "Buying/Selling",
+    "link2": "Securities",
+    "link3": "Conversion",
+    "innerTitle3": "Contacts"
   }
 }

@@ -75,6 +75,7 @@
   },
   "Contacts": {
     "SectionContacts": {
+      "title": "Контакты",
       "inputPhone": "Ваш номер телефона",
       "inputName": "Ваше имя",
       "inputComment": "Комментарий",

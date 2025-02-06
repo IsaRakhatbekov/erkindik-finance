@@ -35,6 +35,7 @@ export const SectionContacts = () => {
   return (
     <section className={styles.contacts}>
       <div className={`${styles.contactsContainer} container`}>
+        <h2 className={`${styles.contactsTitle} def-title`}>{t("title")}</h2>
         <div className={styles.wrapper}>
           <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.inputWrapper}>
