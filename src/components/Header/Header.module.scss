@@ -230,3 +230,32 @@
     }
   }
 }
+
+@media (max-width: 450px) {
+  .header {
+    .phone {
+      display: none;
+    }
+
+    .mobileWrapper {
+      .mobileMenuPhone {
+        display: inline-block;
+        position: relative;
+        font-size: 18px;
+        line-height: 1.3em;
+        padding: 10px 0 10px 25px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 15px;
+          left: 0;
+          width: 18px;
+          height: 18px;
+          background: url("../../../public/images/call.svg") no-repeat
+            center/cover;
+        }
+      }
+    }
+  }
+}
