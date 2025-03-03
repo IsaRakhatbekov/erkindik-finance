@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./NewsCard.module.scss";
 import { FC } from "react";
 import { link } from "fs";
+import { useTranslations } from "next-intl";
 
 interface INewsCard {
   image?: string;
@@ -11,6 +12,8 @@ interface INewsCard {
 }
 
 export const NewsCard: FC<INewsCard> = ({ image, title, text, link }) => {
+  const t = useTranslations("HomePage.News");
+
   return (
     <li className={styles.item}>
       <div className={styles.imgWrapper}>
@@ -24,7 +27,7 @@ export const NewsCard: FC<INewsCard> = ({ image, title, text, link }) => {
         <h4 className={styles.innerTitle}>{title}</h4>
         <p className={styles.text}>{text}</p>
         <a href={link} className={styles.innerBtn} target="_blank">
-          Подробнее
+          {t("buttonText")}
         </a>
       </div>
     </li>

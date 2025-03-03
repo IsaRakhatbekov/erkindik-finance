@@ -16,7 +16,8 @@
       "secondBtn": "Become investor"
     },
     "News": {
-      "title": "News"
+      "title": "News",
+      "buttonText": "Detailed"
     },
     "Why": {
       "title": "Why chouse us ?",
