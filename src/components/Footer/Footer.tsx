@@ -1,5 +1,7 @@
 import Image from "next/image";
+
 import styles from "./Footer.module.scss";
+
 import logo from "@/public/images/logo.svg";
 import { Link } from "@/src/i18n/routing";
 import { FC } from "react";
@@ -14,7 +16,7 @@ export const Footer: FC<IFooterProps> = ({ data }) => {
   const t = useTranslations();
   return (
     <footer className={styles.footer}>
-      <div className={`${styles.footerCOntainer} container`}>
+      <div className={`${styles.container} container`}>
         <div className={styles.wrapper}>
           <div className={styles.left}>
             <Link href="/" className={styles.logo}>

@@ -8,6 +8,7 @@ import "@/src/global/styles/global.scss";
 import { IContactsApiResponse } from "@/src/types/IContacts";
 import { Header } from "@/src/components/Header/Header";
 import { Footer } from "@/src/components/Footer/Footer";
+import Head from "next/head";
 
 const ibmFont = localFont({
   src: [
@@ -23,7 +24,8 @@ const ibmFont = localFont({
     },
   ],
   variable: "--font-ibm",
-  preload: false,
+  display: "swap",
+  preload: true,
 });
 
 const interFont = localFont({
@@ -60,7 +62,8 @@ const interFont = localFont({
     },
   ],
   variable: "--font-inter",
-  preload: false,
+  display: "swap",
+  preload: true,
 });
 
 const jostFont = localFont({
@@ -77,7 +80,8 @@ const jostFont = localFont({
     },
   ],
   variable: "--font-jost",
-  preload: false,
+  display: "swap",
+  preload: true,
 });
 
 const montserratFont = localFont({
@@ -94,7 +98,8 @@ const montserratFont = localFont({
     },
   ],
   variable: "--font-montserrrat",
-  preload: false,
+  display: "swap",
+  preload: true,
 });
 
 const nunitoFont = localFont({
@@ -111,7 +116,8 @@ const nunitoFont = localFont({
     },
   ],
   variable: "--font-nunito",
-  preload: false,
+  display: "swap",
+  preload: true,
 });
 
 const robotoFonts = localFont({
@@ -138,7 +144,8 @@ const robotoFonts = localFont({
     },
   ],
   variable: "--font-roboto",
-  preload: false,
+  display: "swap",
+  preload: true,
 });
 
 const sourceProFont = localFont({
@@ -155,7 +162,8 @@ const sourceProFont = localFont({
     },
   ],
   variable: "--font-sourcePro",
-  preload: false,
+  display: "swap",
+  preload: true,
 });
 
 export default async function LocaleLayout({
@@ -185,7 +193,9 @@ export default async function LocaleLayout({
   };
 
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contact?locale=${locale}`);
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/contact?locale=${locale}`
+    );
     if (!res.ok) {
       throw new Error("Failed to fetch contacts");
     }
@@ -201,6 +211,12 @@ export default async function LocaleLayout({
       lang={locale}
       className={`${ibmFont.variable} ${interFont.variable} ${jostFont.variable} ${montserratFont.variable} ${nunitoFont.variable} ${robotoFonts.variable} ${sourceProFont.variable}`}
     >
+      <Head>
+        {/* Предзагрузка критического CSS */}
+        <link rel="preload" as="image" href="/images/heroBg.webp" />
+        <link rel="preload" href="/css/5b1712d1e4f276dd.css" as="style" />
+        <link rel="stylesheet" href="/css/5b1712d1e4f276dd.css" />
+      </Head>
       <body>
         <NextIntlClientProvider messages={messages}>
           <Header phone={contactsData?.phone} />
