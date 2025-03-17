@@ -116,7 +116,6 @@ export const Header: FC<IHeaderProps> = ({ phone }) => {
           </ul>
           <div className={styles.phoneWrapper}>
             <LocaleSwitcher />
-
             <a className={styles.phone} href={`tel:+${phone}`}>
               {`+${phone}`}
             </a>
