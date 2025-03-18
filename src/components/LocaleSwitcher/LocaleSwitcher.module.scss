@@ -1,0 +1,39 @@
+.localeWrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.selected {
+  width: 30px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 25px;
+  left: -4px;
+  background: #1a1a1a;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.dropdown li {
+  list-style: none;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background: #333;
+  }
+}
