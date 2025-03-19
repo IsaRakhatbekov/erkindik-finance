@@ -15,6 +15,12 @@ const localeFlagImages: Record<string, string> = {
   en: usFlag.src,
 };
 
+const localeLabels: Record<string, string> = {
+  ru: "RU",
+  ky: "KY",
+  en: "EN",
+};
+
 export default function LocaleSwitcher() {
   const locale = useLocale();
   const router = useRouter();
@@ -43,6 +49,7 @@ export default function LocaleSwitcher() {
           width={30}
           height={30}
         />
+        <span className={styles.label}>{localeLabels[locale]}</span>
       </div>
 
       {isOpen && (
@@ -55,6 +62,7 @@ export default function LocaleSwitcher() {
                 width={30}
                 height={30}
               />
+              <span className={styles.label}>{localeLabels[cur]}</span>
             </li>
           ))}
         </ul>

@@ -5,12 +5,13 @@
 }
 
 .selected {
-  width: 30px;
+  width: auto; // Изменил с фиксированной ширины на auto, чтобы вместить текст
   height: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 4px;
+  padding: 0 5px; // Добавил внутренний отступ для красоты
 }
 
 .dropdown {
@@ -29,11 +30,17 @@
   padding: 5px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; // Изменил с center на flex-start для выравнивания слева
   transition: background 0.2s;
   cursor: pointer;
 
   &:hover {
     background: #333;
   }
+}
+
+.label {
+  margin-left: 8px; // Отступ между флагом и текстом
+  color: #fff; // Цвет текста (настраивай под свой дизайн)
+  font-size: 14px; // Размер шрифта (можно изменить)
 }
