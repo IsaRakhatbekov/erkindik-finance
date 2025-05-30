@@ -24,11 +24,18 @@ export const NewsCard: FC<INewsCard> = ({ image, title, text, link }) => {
         )}
       </div>
       <div className={styles.inner}>
-        <h4 className={styles.innerTitle}>{title}</h4>
+        <h2 className={styles.innerTitle}>{title}</h2>
         <p className={styles.text}>{text}</p>
-        <a href={link} className={styles.innerBtn} target="_blank">
-          {t("buttonText")}
-        </a>
+        {link ? (
+          <a
+            href={link}
+            className={styles.innerBtn}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t("buttonText")}
+          </a>
+        ) : null}
       </div>
     </li>
   );

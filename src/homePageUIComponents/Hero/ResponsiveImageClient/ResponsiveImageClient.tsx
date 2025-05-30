@@ -15,5 +15,7 @@ export const ResponsiveImage = () => {
     return () => window.removeEventListener("resize", updateImage);
   }, []);
 
-  return <Image src={isMobile ? heroBoxMobile : heroImg} alt="Сейф" />;
+  return (
+    <Image src={isMobile ? heroBoxMobile : heroImg} alt="Сейф" loading="lazy" />
+  );
 };

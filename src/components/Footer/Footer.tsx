@@ -26,7 +26,7 @@ export const Footer: FC<IFooterProps> = ({ data }) => {
           </div>
           <ul className={styles.list}>
             <li className={styles.item}>
-              <h5 className={styles.innerTitle}>{t("Footer.innerTitle1")}</h5>
+              <p className={styles.innerTitle}>{t("Footer.innerTitle1")}</p>
               <Link className={styles.link} href="/">
                 {t("Header.link1")}
               </Link>
@@ -45,7 +45,7 @@ export const Footer: FC<IFooterProps> = ({ data }) => {
               </Link>
             </li>
             <li className={styles.item}>
-              <h5 className={styles.innerTitle}>{t("Footer.innerTitle2")}</h5>
+              <p className={styles.innerTitle}>{t("Footer.innerTitle2")}</p>
               <Link className={styles.link} href="/documents">
                 {t("Footer.link1")}
               </Link>
@@ -57,7 +57,7 @@ export const Footer: FC<IFooterProps> = ({ data }) => {
               </Link>
             </li>
             <li className={styles.item}>
-              <h5 className={styles.innerTitle}>{t("Footer.innerTitle3")}</h5>
+              <p className={styles.innerTitle}>{t("Footer.innerTitle3")}</p>
               {data?.phone ? (
                 <a
                   className={`${styles.link} ${styles.contacts}`}

@@ -1,4 +1,8 @@
 {
+  "Meta": {
+    "title": "Erkindik Finance — Reliable Broker on International Financial Markets",
+    "description": "Erkindik Finance provides secure access to global financial markets, investment opportunities, and trading services. Open an account and manage your assets with confidence."
+  },
   "Header": {
     "link1": "Home",
     "link2": "Services",
@@ -69,10 +73,13 @@
     },
     "Leader": {
       "title": "Our Leader",
-      "text1": "Tilek Zhumabekovich Asanov is an experienced and highly qualified professional with more than 10 years of experience in the financial sector, including microfinance, banking and accounting.He is an outstanding professional able to effectively manage financial processes, ensure business development and strategic planning.",
-      "text2": "He is a graduate of the Kyrgyz Economic University and holds bachelor's and secondary specialized diplomas in finance and accounting. Tilek Jumabekovich has also completed several specialized courses, including certificates in International Financial Reporting Standards (IFRS), banking and finance, as well as certificates confirming his experience in the management and development of microfinance organizations. Translated with DeepL.com (free version)",
-      "text3": "During his career, he has successfully worked his way up from an assistant loan officer to branch manager at Elet Capital IFC CJSC.Due to his high competence in financial planning, analysis, risk management and consumer protection, he has earned recognition in the professional environment."
-    }
+      "text1": "Bazarov Shamshod Abdurasul ugli is an experienced manager and highly qualified specialist in economics and finance. Currently, he holds the position of CEO of Erkindik Finance LLC, where he implements the strategic management of the company, develops financial products and ensures effective interaction with business partners at the national and international levels.",
+      "text2": "Bazarov Shamshod Abdurasul ugli's education includes a bachelor's degree in Economics from the Plekhanov Russian University of Economics (Moscow). Continuing his professional development, he received a Master's degree in Water Economics from the Tashkent Institute of Irrigation and Agricultural Mechanization Engineers. This academic knowledge became the basis of his analytical and managerial approach in the field of business and finance.",
+      "text3": "Bazarov Shamshod Abdurasul ugli has held key positions in large enterprises throughout his career: Chief Accountant, Head of the Production and Planning Department, Head of the Department of Economic Development and Modernization. His abilities in financial analysis, cost optimization, and strategic planning allowed him to strengthen and modernize the internal processes in each of the organizations where he worked.",
+      "text4": "In the following years, he successfully worked as a chief accountant in manufacturing and trading companies, introducing modern financial instruments and ensuring high transparency of management. Further, Bazarov Shamshod Abdurasul ugli moved to the managerial level: in 2021, he became the director of Ricomel Beverages LLC, where he led the development of the product line and entry into new markets. In 2023, he held the position of Commercial Director at Raw Materials Cellulose LLC, where he oversaw export operations and foreign economic activity.",
+      "text5": "In 2024, Bazarov Shamshod Abdurasul ugli represented the interests of EAST WEST FINANCE CJSC in the Republic of Turkey, strengthening international partnerships and promoting the company's services in foreign markets.",
+    "text6": "As CEO of Erkindik Finance LLC, Bazarov Shamshod Abdurasul ugli actively develops corporate strategies, implements innovative financial solutions and ensures the company's sustainable development in a rapidly changing economic environment. His leadership, systematic approach to management and international experience make him a key figure in the development of the region's financial sector."    
+  }
   },
   "Contacts": {
     "SectionContacts": {

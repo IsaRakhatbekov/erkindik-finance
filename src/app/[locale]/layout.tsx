@@ -1,4 +1,4 @@
-import { NextIntlClientProvider } from "next-intl";
+import { NextIntlClientProvider, useTranslations } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Locale, routing } from "@/src/i18n/routing";
@@ -9,6 +9,7 @@ import { IContactsApiResponse } from "@/src/types/IContacts";
 import { Header } from "@/src/components/Header/Header";
 import { Footer } from "@/src/components/Footer/Footer";
 import Head from "next/head";
+import { useTransition } from "react";
 
 const ibmFont = localFont({
   src: [
@@ -165,7 +166,6 @@ const sourceProFont = localFont({
   display: "swap",
   preload: true,
 });
-
 export default async function LocaleLayout({
   children,
   params,
@@ -173,15 +173,13 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  // Ensure that the incoming `locale` is valid
-  const { locale } = await params;
+  const { locale } = params;
   if (!routing.locales.includes(locale as Locale)) {
     notFound();
   }
 
-  // Providing all messages to the client
-  // side is the easiest way to get started
-  const messages = await getMessages();
+  const messages = await getMessages({ locale });
+  const metaMessages = messages.Meta as Record<string, string>;
 
   let contactsData: IContactsApiResponse["data"] = {
     phone: "lorem ipsum",
@@ -196,14 +194,12 @@ export default async function LocaleLayout({
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/api/contact?locale=${locale}`
     );
-    if (!res.ok) {
-      throw new Error("Failed to fetch contacts");
+    if (res.ok) {
+      const response: IContactsApiResponse = await res.json();
+      contactsData = response.data;
     }
-
-    const response: IContactsApiResponse = await res.json();
-    contactsData = response.data;
   } catch (error) {
-    console.error("Error fetching news:", error);
+    console.error("Error fetching contacts:", error);
   }
 
   return (
@@ -212,7 +208,8 @@ export default async function LocaleLayout({
       className={`${ibmFont.variable} ${interFont.variable} ${jostFont.variable} ${montserratFont.variable} ${nunitoFont.variable} ${robotoFonts.variable} ${sourceProFont.variable}`}
     >
       <Head>
-        {/* Предзагрузка критического CSS */}
+        <title>{metaMessages.title}</title>
+        <meta name="description" content={metaMessages.description} />
         <link rel="preload" as="image" href="/images/heroBg.webp" />
         <link rel="preload" href="/css/5b1712d1e4f276dd.css" as="style" />
         <link rel="stylesheet" href="/css/5b1712d1e4f276dd.css" />
