@@ -31,10 +31,18 @@ export const News = async () => {
         <ul className={styles.list}>
           {data?.map((newsItem) => {
             const { id, title, text, image, link } = newsItem;
+            let imageUrl: string | undefined;
 
-            const imageUrl = `${process.env.NEXT_PUBLIC_API_URL}${
-              image?.formats?.medium?.url || image?.url
-            }`;
+            if (image) {
+              const url =
+                image.formats?.medium?.url ||
+                image.formats?.small?.url ||
+                image.url;
+
+              if (url) {
+                imageUrl = `${process.env.NEXT_PUBLIC_API_URL}${url}`;
+              }
+            }
 
             return (
               <NewsCard
@@ -42,7 +50,7 @@ export const News = async () => {
                 image={imageUrl}
                 title={title}
                 text={text}
-                link={link}
+                link={link || ""}
               />
             );
           })}

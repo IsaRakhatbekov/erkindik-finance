@@ -8,8 +8,7 @@ import "@/src/global/styles/global.scss";
 import { IContactsApiResponse } from "@/src/types/IContacts";
 import { Header } from "@/src/components/Header/Header";
 import { Footer } from "@/src/components/Footer/Footer";
-import Head from "next/head";
-import { useTransition } from "react";
+import { Metadata } from "next";
 
 const ibmFont = localFont({
   src: [
@@ -166,6 +165,27 @@ const sourceProFont = localFont({
   display: "swap",
   preload: true,
 });
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: Locale };
+}): Promise<Metadata> {
+  const messages = await getMessages({ locale: params.locale });
+  const metaMessages = messages.Meta as Record<string, string>;
+
+  return {
+    title: metaMessages.title,
+    description: metaMessages.description,
+    openGraph: {
+      title: metaMessages.title,
+      description: metaMessages.description,
+    },
+    alternates: {
+      canonical: `https://www.erkindikfinance-kg/${params.locale}`,
+    },
+  };
+}
+
 export default async function LocaleLayout({
   children,
   params,
@@ -179,7 +199,6 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages({ locale });
-  const metaMessages = messages.Meta as Record<string, string>;
 
   let contactsData: IContactsApiResponse["data"] = {
     phone: "lorem ipsum",
@@ -207,13 +226,6 @@ export default async function LocaleLayout({
       lang={locale}
       className={`${ibmFont.variable} ${interFont.variable} ${jostFont.variable} ${montserratFont.variable} ${nunitoFont.variable} ${robotoFonts.variable} ${sourceProFont.variable}`}
     >
-      <Head>
-        <title>{metaMessages.title}</title>
-        <meta name="description" content={metaMessages.description} />
-        <link rel="preload" as="image" href="/images/heroBg.webp" />
-        <link rel="preload" href="/css/5b1712d1e4f276dd.css" as="style" />
-        <link rel="stylesheet" href="/css/5b1712d1e4f276dd.css" />
-      </Head>
       <body>
         <NextIntlClientProvider messages={messages}>
           <Header phone={contactsData?.phone} />

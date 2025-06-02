@@ -1,7 +1,6 @@
 import Image from "next/image";
 import styles from "./NewsCard.module.scss";
 import { FC } from "react";
-import { link } from "fs";
 import { useTranslations } from "next-intl";
 
 interface INewsCard {
@@ -14,19 +13,34 @@ interface INewsCard {
 export const NewsCard: FC<INewsCard> = ({ image, title, text, link }) => {
   const t = useTranslations("HomePage.News");
 
+  const isValidImageUrl =
+    image && !image.includes("undefined") && /^https?:\/\//i.test(image);
+
+  const isValidLink =
+    link && link.trim() !== "" && /^(https?:\/\/|\/)/i.test(link);
+
   return (
     <li className={styles.item}>
       <div className={styles.imgWrapper}>
-        {image ? (
-          <Image src={image} alt="news image" width={400} height={245} />
+        {isValidImageUrl ? (
+          <Image
+            src={image}
+            alt={title || "news image"}
+            width={400}
+            height={245}
+            onError={(e) => {
+              console.error("Failed to load image:", image);
+              e.currentTarget.style.display = "none";
+            }}
+          />
         ) : (
-          <div className={styles.noImage}>Нет данных</div>
+          <div className={styles.noImage}>Error</div>
         )}
       </div>
       <div className={styles.inner}>
         <h2 className={styles.innerTitle}>{title}</h2>
         <p className={styles.text}>{text}</p>
-        {link ? (
+        {isValidLink ? (
           <a
             href={link}
             className={styles.innerBtn}
@@ -35,7 +49,9 @@ export const NewsCard: FC<INewsCard> = ({ image, title, text, link }) => {
           >
             {t("buttonText")}
           </a>
-        ) : null}
+        ) : (
+          <span className={styles.innerBtn}>{t("buttonText")}</span>
+        )}
       </div>
     </li>
   );
