@@ -21,7 +21,8 @@
     },
     "News": {
       "title": "News",
-      "buttonText": "Detailed"
+      "buttonText": "Detailed",
+      "noImage": "No image"
     },
     "Why": {
       "title": "Why chouse us ?",
