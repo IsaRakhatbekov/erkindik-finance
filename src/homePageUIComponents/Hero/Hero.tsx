@@ -4,8 +4,8 @@ import { IContactsApiResponse } from "@/src/types/IContacts";
 import { Link } from "@/src/i18n/routing";
 import { ResponsiveImage } from "./ResponsiveImageClient/ResponsiveImageClient";
 import { getLocale, getTranslations } from "next-intl/server";
-import heroImg from "@/public/images/heroBox.png";
-import heroBoxMobile from "@/public/images/heroBlackBox.svg";
+import heroImg from "@/public/images/heroBox.webp";
+import heroBoxMobile from "@/public/images/heroBlackBox.webp";
 
 export const Hero: FC = async () => {
   const t = await getTranslations("HomePage.Hero");

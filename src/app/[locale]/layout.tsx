@@ -1,4 +1,4 @@
-import { NextIntlClientProvider, useTranslations } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Locale, routing } from "@/src/i18n/routing";
@@ -9,24 +9,6 @@ import { IContactsApiResponse } from "@/src/types/IContacts";
 import { Header } from "@/src/components/Header/Header";
 import { Footer } from "@/src/components/Footer/Footer";
 import { Metadata } from "next";
-
-const ibmFont = localFont({
-  src: [
-    {
-      path: "../../global/fonts/IBMPlexSerif-SemiBold.woff2",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "../../global/fonts/IBMPlexSerif-SemiBold.woff",
-      weight: "600",
-      style: "normal",
-    },
-  ],
-  variable: "--font-ibm",
-  display: "swap",
-  preload: true,
-});
 
 const interFont = localFont({
   src: [
@@ -66,24 +48,6 @@ const interFont = localFont({
   preload: true,
 });
 
-const jostFont = localFont({
-  src: [
-    {
-      path: "../../global/fonts/Jost-Medium.woff2",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../../global/fonts/Jost-Medium.woff",
-      weight: "500",
-      style: "normal",
-    },
-  ],
-  variable: "--font-jost",
-  display: "swap",
-  preload: true,
-});
-
 const montserratFont = localFont({
   src: [
     {
@@ -99,71 +63,7 @@ const montserratFont = localFont({
   ],
   variable: "--font-montserrrat",
   display: "swap",
-  preload: true,
-});
-
-const nunitoFont = localFont({
-  src: [
-    {
-      path: "../../global/fonts/NunitoSans10pt-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../global/fonts/NunitoSans10pt-Regular.woff",
-      weight: "400",
-      style: "normal",
-    },
-  ],
-  variable: "--font-nunito",
-  display: "swap",
-  preload: true,
-});
-
-const robotoFonts = localFont({
-  src: [
-    {
-      path: "../../global/fonts/Roboto-Bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "../../global/fonts/Roboto-Bold.woff",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "../../global/fonts/Roboto-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../global/fonts/Roboto-Regular.woff",
-      weight: "400",
-      style: "normal",
-    },
-  ],
-  variable: "--font-roboto",
-  display: "swap",
-  preload: true,
-});
-
-const sourceProFont = localFont({
-  src: [
-    {
-      path: "../../global/fonts/SourceCodePro-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../global/fonts/SourceCodePro-Regular.woff",
-      weight: "400",
-      style: "normal",
-    },
-  ],
-  variable: "--font-sourcePro",
-  display: "swap",
-  preload: true,
+  preload: false,
 });
 
 export async function generateMetadata({
@@ -227,7 +127,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${ibmFont.variable} ${interFont.variable} ${jostFont.variable} ${montserratFont.variable} ${nunitoFont.variable} ${robotoFonts.variable} ${sourceProFont.variable}`}
+      className={`${interFont.variable} ${montserratFont.variable}`}
     >
       <body>
         <NextIntlClientProvider messages={messages}>

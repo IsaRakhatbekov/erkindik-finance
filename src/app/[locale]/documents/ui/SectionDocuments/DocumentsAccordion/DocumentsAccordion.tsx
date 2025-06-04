@@ -3,8 +3,27 @@ import { FC, useState } from "react";
 import styles from "./DocumentsAccordion.module.scss";
 import { IDocumentBlock } from "@/src/types/IDocuments";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+import localFont from "next/font/local";
 
 interface IDocumentsAccordionProps extends IDocumentBlock {}
+
+const jostFont = localFont({
+  src: [
+    {
+      path: "../../global/fonts/Jost-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../global/fonts/Jost-Medium.woff",
+      weight: "500",
+      style: "normal",
+    },
+  ],
+  variable: "--font-jost",
+  display: "swap",
+  preload: false,
+});
 
 const DocumentsAccordion: FC<IDocumentsAccordionProps> = ({
   accordionTitle,
@@ -18,7 +37,7 @@ const DocumentsAccordion: FC<IDocumentsAccordionProps> = ({
   };
 
   return (
-    <li className={styles.accordion}>
+    <li className={`${styles.accordion} ${jostFont.variable}`}>
       <button
         onClick={() => handleClickAccordion(0)}
         className={`${styles.accordionBtn} ${

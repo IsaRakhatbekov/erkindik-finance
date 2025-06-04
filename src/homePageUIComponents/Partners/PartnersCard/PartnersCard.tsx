@@ -16,6 +16,7 @@ const PartnersCard: FC<IPartnersCard> = ({ image }) => {
       <div className={styles.image}>
         <Image
           src={imageUrl}
+          loading="lazy"
           alt="partner logo"
           width={image?.width}
           height={image?.height}

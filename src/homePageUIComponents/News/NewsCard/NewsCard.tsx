@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "./NewsCard.module.scss";
 import { FC, useState } from "react";
 import { useTranslations } from "next-intl";
+import localFont from "next/font/local";
 
 interface INewsCard {
   image?: string;
@@ -11,6 +12,42 @@ interface INewsCard {
   text: string;
   link?: string;
 }
+
+const ibmFont = localFont({
+  src: [
+    {
+      path: "../../../global/fonts/IBMPlexSerif-SemiBold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../../global/fonts/IBMPlexSerif-SemiBold.woff",
+      weight: "600",
+      style: "normal",
+    },
+  ],
+  variable: "--font-ibm",
+  display: "swap",
+  preload: true,
+});
+
+const nunitoFont = localFont({
+  src: [
+    {
+      path: "../../../global/fonts/NunitoSans10pt-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../../global/fonts/NunitoSans10pt-Regular.woff",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-nunito",
+  display: "swap",
+  preload: false,
+});
 
 export const NewsCard: FC<INewsCard> = ({ image, title, text, link }) => {
   const t = useTranslations("HomePage.News");
@@ -22,7 +59,7 @@ export const NewsCard: FC<INewsCard> = ({ image, title, text, link }) => {
     link && link.trim() !== "" && /^(https?:\/\/|\/)/i.test(link);
 
   return (
-    <li className={styles.item}>
+    <li className={`${styles.item} ${ibmFont.variable} ${nunitoFont.variable}`}>
       <div className={styles.imgWrapper}>
         {isValidImageUrl && !imageError ? (
           <Image
@@ -30,6 +67,7 @@ export const NewsCard: FC<INewsCard> = ({ image, title, text, link }) => {
             alt={title || "news image"}
             width={400}
             height={245}
+            loading="lazy"
             onError={() => setImageError(true)}
           />
         ) : (

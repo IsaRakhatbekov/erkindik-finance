@@ -7,20 +7,48 @@ import { Link } from "@/src/i18n/routing";
 import { FC } from "react";
 import { IContactsApiResponse } from "@/src/types/IContacts";
 import { useTranslations } from "next-intl";
+import localFont from "next/font/local";
 
 interface IFooterProps {
   data: IContactsApiResponse["data"];
 }
+const robotoFonts = localFont({
+  src: [
+    {
+      path: "../../global/fonts/Roboto-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../global/fonts/Roboto-Bold.woff",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../global/fonts/Roboto-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../global/fonts/Roboto-Regular.woff",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-roboto",
+  display: "swap",
+  preload: false,
+});
 
 export const Footer: FC<IFooterProps> = ({ data }) => {
   const t = useTranslations();
   return (
-    <footer className={styles.footer}>
+    <footer className={`${styles.footer} ${robotoFonts.variable}`}>
       <div className={`${styles.container} container`}>
         <div className={styles.wrapper}>
           <div className={styles.left}>
             <Link href="/" className={styles.logo}>
-              <Image src={logo} alt="Логотип" />
+              <Image src={logo} alt="Логотип" loading="lazy" />
             </Link>
             <p className={styles.text}>{t("Footer.text")}</p>
           </div>

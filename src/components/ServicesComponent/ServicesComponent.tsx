@@ -15,28 +15,28 @@ export const ServicesComponent = () => {
         <ul className={styles.list}>
           <li className={styles.item}>
             <div className={styles.imgWrapper}>
-              <Image src={Services1} alt="design icon" />
+              <Image src={Services1} alt="design icon" loading="lazy" />
             </div>
             <h3 className={styles.innerTitle}>{t("innerTitle1")}</h3>
             <p className={styles.text}>{t("text1")}</p>
           </li>
           <li className={styles.item}>
             <div className={styles.imgWrapper}>
-              <Image src={Services2} alt="design icon" />
+              <Image src={Services2} alt="design icon" loading="lazy" />
             </div>
             <h3 className={styles.innerTitle}>{t("innerTitle2")}</h3>
             <p className={styles.text}>{t("text2")}</p>
           </li>
           <li className={styles.item}>
             <div className={styles.imgWrapper}>
-              <Image src={Services3} alt="design icon" />
+              <Image src={Services3} alt="design icon" loading="lazy" />
             </div>
             <h3 className={styles.innerTitle}>{t("innerTitle3")}</h3>
             <p className={styles.text}>{t("text3")}</p>
           </li>
           <li className={styles.item}>
             <div className={styles.imgWrapper}>
-              <Image src={Services4} alt="design icon" />
+              <Image src={Services4} alt="design icon" loading="lazy" />
             </div>
             <h3 className={styles.innerTitle}>{t("innerTitle4")}</h3>
             <p className={styles.text}>{t("text4")}</p>

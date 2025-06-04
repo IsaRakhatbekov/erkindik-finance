@@ -121,11 +121,11 @@ export const Header: FC<IHeaderProps> = ({ phone }) => {
             </a>
             <button
               onClick={handleClickBurger}
+              aria-label={burger ? "closeMenu" : "openMenu"}
               className={`${styles.menuBtn} ${
                 burger ? styles.menuBtnActive : ""
               }`}
             >
-              <span className="sr-only"></span>
               <span></span>
             </button>
           </div>

@@ -6,18 +6,16 @@
   --color-yellow: #f1b83f;
   --color-dark-gray: #2a2a2a;
 }
-
 html,
 body {
-  height: 100%; /* Устанавливаем высоту для html и body */
-  margin: 0; /* Убираем отступы */
+  height: 100%;
+  margin: 0;
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
 }
-
 body {
-  display: flex; /* Делаем body flex-контейнером */
-  flex-direction: column; /* Элементы располагаются вертикально */
+  display: flex;
+  flex-direction: column;
   color: var(--color-white);
   background: var(--color-primary);
   font-family: var(--font-inter);
@@ -25,39 +23,22 @@ body {
   font-weight: 400;
   line-height: 1.3em;
 }
-
 main {
   position: relative;
   z-index: 0;
-  flex: 1; /* Заставляем main занимать доступное пространство */
+  flex: 1;
 }
-
 .container {
   max-width: 1470px;
   padding: 0 15px;
   margin: 0 auto;
 }
-
-.sr-only {
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  margin: -1px;
-  height: 1px;
-  width: 1px;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-}
-
 footer {
   margin-top: auto;
   background: var(--color-dark-gray);
   padding: 20px;
   color: var(--color-white);
 }
-
 .def-title {
   font-family: "Inter", sans-serif;
   font-weight: 700;
@@ -68,13 +49,11 @@ footer {
   color: var(--color-white);
   margin-bottom: 50px;
 }
-
 @media (max-width: 768px) {
   html {
     scroll-padding-top: 65px;
   }
 }
-
 @media (max-width: 500px) {
   body {
     background-color: var(--color-dark);

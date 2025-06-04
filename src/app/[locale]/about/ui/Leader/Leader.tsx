@@ -15,7 +15,7 @@ export const Leader = () => {
             <p className={styles.text}>{t("text3")}</p>
           </div>
           <div className={styles.imgWrapper}>
-            <Image src={leader} alt="" />
+            <Image src={leader} loading="lazy" alt="" />
           </div>
         </div>
       </div>

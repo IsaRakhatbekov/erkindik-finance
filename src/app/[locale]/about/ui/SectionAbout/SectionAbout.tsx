@@ -15,7 +15,7 @@ export const SectionAbout = () => {
             <p className={styles.text}>{t("text2")}</p>
           </li>
           <li className={styles.imgWrapper}>
-            <Image src={heroImg} alt="картинка с людьми" />
+            <Image src={heroImg} loading="lazy" alt="картинка с людьми" />
           </li>
         </ul>
       </div>

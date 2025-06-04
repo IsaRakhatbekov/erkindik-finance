@@ -4,11 +4,13 @@ import { IPartnersCardApiResponse } from "@/src/types/IPartnersCard";
 import { getTranslations } from "next-intl/server";
 
 export const Partners = async () => {
-  const t = await getTranslations("HomePage.Partners")
+  const t = await getTranslations("HomePage.Partners");
   let data: IPartnersCardApiResponse["data"] = [];
 
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/partners?populate=*`);
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/partners?populate=*`
+    );
 
     if (!res.ok) {
       throw new Error(`Failed to fetch partners: ${res.statusText}`);

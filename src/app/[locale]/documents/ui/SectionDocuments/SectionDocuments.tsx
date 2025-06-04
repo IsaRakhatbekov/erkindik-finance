@@ -26,7 +26,7 @@ export const SectionDocuments = async () => {
   return (
     <section className={styles.documents}>
       <div className={`${styles.documentsContainer} container`}>
-        <h2 className={`${styles.documentsTitle} def-title`}>{t("title")}</h2>
+        <h2 className={`${styles.lawText} def-title`}>{t("title")}</h2>
 
         <ul className={styles.accordionWrapper}>
           {data?.map((documentBlock) => (
