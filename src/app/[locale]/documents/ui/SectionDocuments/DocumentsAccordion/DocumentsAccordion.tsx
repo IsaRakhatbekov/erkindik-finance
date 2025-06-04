@@ -10,12 +10,12 @@ interface IDocumentsAccordionProps extends IDocumentBlock {}
 const jostFont = localFont({
   src: [
     {
-      path: "../../global/fonts/Jost-Medium.woff2",
+      path: "../../../../../../global/fonts/Jost-Medium.woff2",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../../global/fonts/Jost-Medium.woff",
+      path: "../../../../../../global/fonts/Jost-Medium.woff",
       weight: "500",
       style: "normal",
     },
