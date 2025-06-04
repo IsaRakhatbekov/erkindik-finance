@@ -38,6 +38,19 @@ main {
   margin: 0 auto;
 }
 
+.sr-only {
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
 footer {
   margin-top: auto;
   background: var(--color-dark-gray);

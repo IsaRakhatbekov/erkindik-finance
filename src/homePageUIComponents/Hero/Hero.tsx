@@ -4,6 +4,8 @@ import { IContactsApiResponse } from "@/src/types/IContacts";
 import { Link } from "@/src/i18n/routing";
 import { ResponsiveImage } from "./ResponsiveImageClient/ResponsiveImageClient";
 import { getLocale, getTranslations } from "next-intl/server";
+import heroImg from "@/public/images/heroBox.png";
+import heroBoxMobile from "@/public/images/heroBlackBox.svg";
 
 export const Hero: FC = async () => {
   const t = await getTranslations("HomePage.Hero");
@@ -19,7 +21,9 @@ export const Hero: FC = async () => {
   };
 
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contact?locale=${locale}`);
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/contact?locale=${locale}`
+    );
     if (!res.ok) {
       throw new Error("Failed to fetch contacts");
     }
@@ -37,9 +41,9 @@ export const Hero: FC = async () => {
           <li className={styles.content}>
             <h1 className={styles.title}>{t("title")}</h1>
             <p className={styles.text}>{t("text")}</p>
-            <p
-              className={styles.workTime}
-            >{`${t("workTime")} : ${contactsData?.schedule}`}</p>
+            <p className={styles.workTime}>{`${t("workTime")} : ${
+              contactsData?.schedule
+            }`}</p>
             <div className={styles.btnWrapper}>
               <Link
                 href={"/service"}
@@ -56,7 +60,7 @@ export const Hero: FC = async () => {
             </div>
           </li>
           <li className={styles.imgWrapper}>
-            <ResponsiveImage />
+            <ResponsiveImage desktopSrc={heroImg} mobileSrc={heroBoxMobile} />
           </li>
         </ul>
       </div>

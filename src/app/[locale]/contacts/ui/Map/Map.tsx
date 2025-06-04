@@ -6,7 +6,7 @@ interface IMapProps {
   googleMapsLink: string;
 }
 export const Map: FC<IMapProps> = ({ googleMapsLink }) => {
-  const t = useTranslations("Contacts.Map")
+  const t = useTranslations("Contacts.Map");
   return (
     <section className={styles.map}>
       <div className={`${styles.mapContainer} container`}>
@@ -15,7 +15,7 @@ export const Map: FC<IMapProps> = ({ googleMapsLink }) => {
           <iframe
             className={styles.iframe}
             src={googleMapsLink}
-            style={{ border: 0 }} // Передаем объект, а не строку
+            style={{ border: 0 }}
             allowFullScreen={true}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

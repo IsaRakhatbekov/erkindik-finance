@@ -165,12 +165,14 @@ const sourceProFont = localFont({
   display: "swap",
   preload: true,
 });
+
 export async function generateMetadata({
   params,
 }: {
   params: { locale: Locale };
 }): Promise<Metadata> {
-  const messages = await getMessages({ locale: params.locale });
+  const { locale } = await params;
+  const messages = await getMessages({ locale });
   const metaMessages = messages.Meta as Record<string, string>;
 
   return {
@@ -181,7 +183,8 @@ export async function generateMetadata({
       description: metaMessages.description,
     },
     alternates: {
-      canonical: `https://www.erkindikfinance-kg/${params.locale}`,
+      // canonical: `https://www.erkindikfinance-kg/${params.locale}`,
+      canonical: `https://www.erkindikfinance-kg/${locale}`,
     },
   };
 }
@@ -193,7 +196,7 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const { locale } = params;
+  const { locale } = await params;
   if (!routing.locales.includes(locale as Locale)) {
     notFound();
   }

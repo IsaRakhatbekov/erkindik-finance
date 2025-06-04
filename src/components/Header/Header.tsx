@@ -125,6 +125,7 @@ export const Header: FC<IHeaderProps> = ({ phone }) => {
                 burger ? styles.menuBtnActive : ""
               }`}
             >
+              <span className="sr-only"></span>
               <span></span>
             </button>
           </div>
@@ -202,12 +203,14 @@ export const Header: FC<IHeaderProps> = ({ phone }) => {
                   {t("link6")}
                 </Link>
               </li>
-              <a
-                className={`${styles.phone} ${styles.mobileMenuPhone}`}
-                href={`tel:+${phone}`}
-              >
-                {`+${phone}`}
-              </a>
+              <li className={styles.mobileItem}>
+                <a
+                  className={`${styles.phone} ${styles.mobileMenuPhone}`}
+                  href={`tel:+${phone}`}
+                >
+                  {`+${phone}`}
+                </a>
+              </li>
             </ul>
           </div>
         </nav>

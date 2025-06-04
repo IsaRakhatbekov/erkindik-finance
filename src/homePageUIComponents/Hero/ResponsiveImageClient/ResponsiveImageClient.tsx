@@ -1,21 +1,32 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import heroImg from "@/public/images/heroBox.png";
 import heroBoxMobile from "@/public/images/heroBlackBox.svg";
+import styles from "./ResponsiveImage.module.scss"; // Создадим новый CSS-модуль
 
-export const ResponsiveImage = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const updateImage = () => setIsMobile(window.innerWidth < 500);
-    updateImage();
-    window.addEventListener("resize", updateImage);
-    return () => window.removeEventListener("resize", updateImage);
-  }, []);
-
-  return (
-    <Image src={isMobile ? heroBoxMobile : heroImg} alt="Сейф" loading="lazy" />
-  );
-};
+export const ResponsiveImage = ({
+  desktopSrc,
+  mobileSrc,
+}: {
+  desktopSrc: StaticImageData;
+  mobileSrc: StaticImageData;
+}) => (
+  <div className={styles.responsiveContainer}>
+    <Image
+      src={desktopSrc}
+      alt="Сейф"
+      className={styles.desktopImage}
+      priority
+      quality={85}
+    />
+    <Image
+      src={mobileSrc}
+      alt="Сейф"
+      className={styles.mobileImage}
+      priority
+      quality={75}
+      sizes="(max-width: 768px) 100vw, 50vw"
+    />
+  </div>
+);
