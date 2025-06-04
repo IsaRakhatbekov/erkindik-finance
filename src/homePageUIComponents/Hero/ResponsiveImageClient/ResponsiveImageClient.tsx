@@ -1,8 +1,4 @@
-"use client";
-
 import Image, { StaticImageData } from "next/image";
-import heroImg from "@/public/images/heroBox.png";
-import heroBoxMobile from "@/public/images/heroBlackBox.svg";
 import styles from "./ResponsiveImage.module.scss"; // Создадим новый CSS-модуль
 
 export const ResponsiveImage = ({
